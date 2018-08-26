@@ -38,3 +38,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Let my own binaries override system ones
 PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
+
+# Enable local override
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
