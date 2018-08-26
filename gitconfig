@@ -13,6 +13,7 @@
         default = tracking
 [rebase]
         autoSquash = true
+	autoStash = true
 [alias]
         fixup = "!f() { git commit -m \"$(git show -s --pretty='format:fixup! %s%n%nFixup for %h%n' \"$@\")\"; }; f"
         ri = rebase -i --autosquash
@@ -23,7 +24,6 @@
         incoming = "!git remote update -p; git log ..@{u}"
         outgoing = log @{u}..
         grep-refs = !sh -c 'git grep "$0" "$@" "$(git for-each-ref --format=\"%(refname)\"" refs/)'
-        get = pull --rebase --autostash
         publish = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
         unpublish = "!git push origin :$(git rev-parse --abbrev-ref HEAD)"
         s = status -sb
@@ -42,3 +42,5 @@
         user = fayoh
 [include]
         path = ~/.gitconfig_local
+[pull]
+	rebase = true
