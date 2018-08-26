@@ -13,7 +13,7 @@ antigen bundle debian
 antigen bundle dirhistory
 
 # Syntax highlighting bundle.
-antigen bundle  zdharma/fast-syntax-highlighting
+antigen bundle  zsh-users/zsh-syntax-highlighting
 
 # Extra zsh completions
 antigen bundle  zsh-users/zsh-completions
@@ -23,10 +23,11 @@ antigen bundle alexrochas/zsh-extract
 
 # Helm-like completion
 antigen bundle zsh-users/zaw
-bindkey '^R' zaw-history
-bindkey '^L' zaw-locate
 
 # Remind me that I made aliases
 antigen bundle "MichaelAquilina/zsh-you-should-use"
 
 antigen apply
+
+bindkey '^R' zaw-history
+bindkey '^L' zaw-locate
