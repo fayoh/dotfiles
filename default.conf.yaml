@@ -3,7 +3,7 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.config']
+- clean: ['~', '~/bin']
 
 - link:
     ~/.dotfiles: ''
@@ -12,6 +12,7 @@
     ~/.gitconfig:
     ~/.zshrc:
     ~/bin/antigen.zsh: 'antigen/bin/antigen.zsh'
+    ~/.local/etc/gtags.conf: 'gtags.conf'
 
 - shell:
   - [git submodule update --init --recursive, Installing/updating submodules]

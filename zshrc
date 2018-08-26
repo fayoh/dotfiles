@@ -37,8 +37,10 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Let my own binaries override system ones
-PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
+export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
+export GTAGSLABEL=pygments
+export GTAGSCONF="${HOME}/.local/etc/gtags.conf"
 # Enable local override
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
