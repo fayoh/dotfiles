@@ -1,2 +1,5 @@
 emacs.d/elpa
 emacs.d/auto-save-list
+emacs.d/.python-environments/
+emacs.d/smex-items
+emacs.d/ido.last
