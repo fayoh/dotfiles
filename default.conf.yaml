@@ -6,8 +6,12 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.dotfiles: ''
     ~/.antigenrc:
     ~/.emacs.d:
     ~/.gitconfig:
     ~/.zshrc:
     ~/bin/antigen.zsh: 'antigen/bin/antigen.zsh'
+
+- shell:
+  - [git submodule update --init --recursive, Installing/updating submodules]
