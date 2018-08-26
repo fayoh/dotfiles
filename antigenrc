@@ -1,0 +1,32 @@
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+# Git conveniences
+antigen bundle git
+antigen bundle git-extras
+antigen bundle smallhadroncollider/antigen-git-rebase
+
+# Help me with apt!
+antigen bundle debian
+
+# Navigate directories
+antigen bundle dirhistory
+
+# Syntax highlighting bundle.
+antigen bundle  zdharma/fast-syntax-highlighting
+
+# Extra zsh completions
+antigen bundle  zsh-users/zsh-completions
+
+# Convenient uncompressor selector
+antigen bundle alexrochas/zsh-extract
+
+# Helm-like completion
+antigen bundle zsh-users/zaw
+bindkey '^R' zaw-history
+bindkey '^L' zaw-locate
+
+# Remind me that I made aliases
+antigen bundle "MichaelAquilina/zsh-you-should-use"
+
+antigen apply

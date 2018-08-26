@@ -1,0 +1,13 @@
+-*- mode: markdown -*-
+## External software
+The elisp packages loaded by this config expects some external
+software to be present. Here is a list with my best attempt at
+remembering what requirements has been accumulated over the years.
+
+* global
+* markdown
+* python - proselint
+* python - pygment
+* python - Jedi
+<!--  LocalWords:  proselint pygment
+ -->

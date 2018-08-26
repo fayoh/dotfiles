@@ -1,0 +1,42 @@
+[color]
+        ui = auto
+[merge]
+        log = true
+[diff "odf"]
+        textconv = odt2txt
+        renames = copy
+        algorithm = patience
+[core]
+        whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+        excludesfile = /home/daniel/.gitignore_global
+[push]
+        default = tracking
+[rebase]
+        autoSquash = true
+[alias]
+        fixup = "!f() { git commit -m \"$(git show -s --pretty='format:fixup! %s%n%nFixup for %h%n' \"$@\")\"; }; f"
+        ri = rebase -i --autosquash
+        st = status
+        br = branch
+        ci = commit
+        co = checkout
+        incoming = "!git remote update -p; git log ..@{u}"
+        outgoing = log @{u}..
+        grep-refs = !sh -c 'git grep "$0" "$@" "$(git for-each-ref --format=\"%(refname)\"" refs/)'
+        get = pull --rebase
+        publish = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+        unpublish = "!git push origin :$(git rev-parse --abbrev-ref HEAD)"
+        s = status -sb
+        amend = commit --amend
+        ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+        theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+        nevermind = !git reset --hard HEAD && git clean -d -f
+        discard = checkout --
+        uncommit = reset --mixed HEAD~
+        new-branch = checkout -b
+[apply]
+        whitespace = fix
+[credential]
+        helper = cache --timeout=3600
+[include]
+        path = ~/.gitconfig_local

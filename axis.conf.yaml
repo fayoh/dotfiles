@@ -1,0 +1,9 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- link:
+    ~/.emacs.d/early-init.el: 'site-specific/axis/emacs-early-init.el'
+    ~/.emacs.d/conf.d/axis-config.el: 'site-specific/axis/emacs-site-conf.el'
+    ~/.gitconfig_local: 'site-specific/axis/.gitconfig_local'

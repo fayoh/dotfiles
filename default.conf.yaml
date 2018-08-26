@@ -1,0 +1,13 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.antigenrc:
+    ~/.emacs.d:
+    ~/.gitconfig:
+    ~/.zshrc:
+    ~/bin/antigen.zsh: 'antigen/bin/antigen.zsh'
