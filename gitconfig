@@ -23,7 +23,7 @@
         incoming = "!git remote update -p; git log ..@{u}"
         outgoing = log @{u}..
         grep-refs = !sh -c 'git grep "$0" "$@" "$(git for-each-ref --format=\"%(refname)\"" refs/)'
-        get = pull --rebase
+        get = pull --rebase --autostash
         publish = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
         unpublish = "!git push origin :$(git rev-parse --abbrev-ref HEAD)"
         s = status -sb
