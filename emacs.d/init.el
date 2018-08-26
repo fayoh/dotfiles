@@ -111,16 +111,17 @@
 ;; ---------
 (fset 'yes-or-no-p 'y-or-n-p)
 (electric-pair-mode 1)
-(setq display-buffer-reuse-frames t        ; Compilations in the same buffer
-      make-backup-files nil                ; Don't litter my file system
-      mouse-yank-at-point t                ; Respect point
-      compilation-read-command nil         ; No need to ask every time
-      indent-tabs-mode nil                 ; No tabs please
-      show-paren-when-point-inside-paren t ; Highlight parens around point
-      show-trailing-whitespace t           ; Always show trailing whitespace
-      kill-read-only-ok t                  ; Copy text in read only buffers
-      case-fold-search t                   ; Case insensitive search
-      vc-follow-symlinks t)                 ; Follow symlinks to repos
+(setq-default
+ display-buffer-reuse-frames t        ; Compilations in the same buffer
+ make-backup-files nil                ; Don't litter my file system
+ mouse-yank-at-point t                ; Respect point
+ compilation-read-command nil         ; No need to ask every time
+ indent-tabs-mode nil                 ; No tabs please
+ show-paren-when-point-inside-paren t ; Highlight parens around point
+ show-trailing-whitespace t           ; Always show trailing whitespace
+ kill-read-only-ok t                  ; Copy text in read only buffers
+ case-fold-search t                   ; Case insensitive search
+ vc-follow-symlinks t)                ; Follow symlinks to repos
 
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
