@@ -4,3 +4,5 @@ emacs.d/.python-environments/
 emacs.d/smex-items
 emacs.d/ido.last
 emacs.d/bookmarks
+emacs.d/elisp/early-init.el
+emacs.d/conf.d/axis-config.el
