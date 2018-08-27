@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# create a ~/mnt/users directory and mount storage03:users
+mkdir -p "${HOME}"/mnt/users
+
+sudo mount -t cifs -o username=danielfb,nodfs,gid=500,file_mode=0770,dir_mode=0770 //storage03/users/danielfb mnt/users
