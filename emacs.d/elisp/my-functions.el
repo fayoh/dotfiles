@@ -21,5 +21,20 @@ NOT-RECURSIVE do not enter subdirectories"
   (enlarge-window 7)
   )
 
+;; Make sure scripts are executable on save.
+;; Code taken from StefanKamphausen on emacswiki.org
+(add-hook 'after-save-hook
+        #'(lambda ()
+        (and (save-excursion
+               (save-restriction
+                 (widen)
+                 (goto-char (point-min))
+                 (save-match-data
+                   (looking-at "^#!"))))
+             (not (file-executable-p buffer-file-name))
+             (shell-command (concat "chmod u+x " buffer-file-name))
+             (message
+              (concat "Saved as script: " buffer-file-name)))))
+
 (provide 'my-functions)
 ;;; my-functions.el ends here
