@@ -8,12 +8,13 @@
         algorithm = patience
 [core]
         whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
-        excludesfile = /home/daniel/.gitignore_global
+        excludesfile = ~/.gitignore_global
+        editor = emacsclient --alternate-editor=\"\"
 [push]
         default = tracking
 [rebase]
         autoSquash = true
-	autoStash = true
+        autoStash = true
 [alias]
         fixup = "!f() { git commit -m \"$(git show -s --pretty='format:fixup! %s%n%nFixup for %h%n' \"$@\")\"; }; f"
         ri = rebase -i --autosquash
@@ -28,6 +29,8 @@
         unpublish = "!git push origin :$(git rev-parse --abbrev-ref HEAD)"
         s = status -sb
         amend = commit --amend
+        ammend = amend #misspelling ...
+        unstage = reset HEAD
         ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
         nevermind = !git reset --hard HEAD && git clean -d -f
@@ -43,4 +46,4 @@
 [include]
         path = ~/.gitconfig_local
 [pull]
-	rebase = true
+        rebase = true

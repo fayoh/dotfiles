@@ -55,7 +55,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load "my-functions") ; Load convenience functions used later in the init
 (load "early-init" t) ; Load early-init if it exists
-
+()
 ;; Package setup
 ;; -------------
 (require 'package)

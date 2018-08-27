@@ -1,6 +1,6 @@
 # Antigen
 source ~/bin/antigen.zsh
-source ~/.antigenrc
+antigen init ~/.antigenrc
 
 setopt histignorealldups
 setopt share_history
@@ -17,6 +17,10 @@ typeset -U path
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -36,11 +40,30 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# Complete hostnames in .ssh/known_hosts
+zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -e "s/,/ /g" /etc/ssh_known_hosts(N) ~/.ssh/known_hosts(N) 2>/dev/null | xargs) $(grep \^Host ~/.ssh/config(N) | cut -f2 -d\  2>/dev/null | xargs))'
+
 # Let my own binaries override system ones
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
+# GLOBAL
 export GTAGSLABEL=pygments
 export GTAGSCONF="${HOME}/.local/etc/gtags.conf"
+
+# Editor
+termedit='emacsclient -t --alternate-editor=""'
+guiedit='emacsclient -c --alternate-editor=""'
+alias e=${termedit}
+alias ec=${guimedit}
+alias suedit='sudo nano'
+export EDITOR=${termedit}
+export VISUAL=${termedit}
+
+#Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Enable local override
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
