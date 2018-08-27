@@ -10,6 +10,7 @@
     ~/.antigenrc:
     ~/.emacs.d:
     ~/.gitconfig:
+    ~/.gitignore_global:
     ~/.zshrc:
     ~/bin/antigen.zsh: 'antigen/bin/antigen.zsh'
     ~/.local/etc/gtags.conf: 'gtags.conf'
