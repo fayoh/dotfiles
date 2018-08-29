@@ -28,6 +28,7 @@
                       '(:key "C-x C-+" :description "Increase font size")
                       '(:key "C-x C-0" :description "Set default font size")
                       '(:key "C-h b" :description "Show available key bindings in current buffer")
+                      '(:key "s-:" :description "Manually initiate autocomplete")
                       '(:key "s-c" :description "Show (this) cheat sheet"))
 
 (cheatsheet-add-group 'Prog-mode

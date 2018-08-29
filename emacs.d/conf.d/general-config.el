@@ -152,6 +152,7 @@
 ;;;;; ------------------------------------------------------
 (use-package company
   :ensure t
+  :bind (("s-:" . company-complete))
   :init (global-company-mode)
   :diminish)
 
@@ -198,7 +199,8 @@
 
 (use-package cheatsheet
   :ensure t
-  :bind ("s-c" . cheatsheet-show))
+  :bind ("s-c" . cheatsheet-show)
+  :init (load "my-cheatsheet"))
 ;;;---------------------------------------------------------
 
 (provide 'general-config)
