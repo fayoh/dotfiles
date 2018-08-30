@@ -121,7 +121,8 @@
 (use-package flycheck
   :ensure t
   :config
-  :init (global-flycheck-mode))
+  :init (progn (global-flycheck-mode)
+               (setq flycheck-emacs-lisp-load-path 'inherit)))
 
 (use-package flycheck-demjsonlint
   :ensure t)
