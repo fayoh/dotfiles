@@ -105,7 +105,11 @@
 
 (use-package yasnippet
   :ensure t
-  :init (yas-global-mode 1)
+  :init
+  (let ((orig (lookup-key global-map (kbd "TAB"))))
+    (yas-global-mode 1)
+    (define-key yas-minor-mode-map (kbd "TAB") orig)
+    (define-key yas-minor-mode-map [(tab)] orig))
   :diminish yas-minor-mode)
 
 (use-package yasnippet-snippets
