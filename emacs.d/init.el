@@ -125,7 +125,7 @@
 
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
 ;; Keyboard bindings
