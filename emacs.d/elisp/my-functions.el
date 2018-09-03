@@ -21,6 +21,14 @@ NOT-RECURSIVE do not enter subdirectories"
   (enlarge-window 7)
   )
 
+(defmacro measure-time (&rest body)
+  "Measure and return the running time of the code block BODY."
+  (declare (indent defun))
+  (let ((start (make-symbol "start")))
+    `(let ((,start (float-time)))
+       ,@body
+       (- (float-time) ,start))))
+
 ;; Make sure scripts are executable on save.
 ;; Code taken from StefanKamphausen on emacswiki.org
 (add-hook 'after-save-hook
