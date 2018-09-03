@@ -93,7 +93,6 @@
 
 ;; Locale and environment
 ;; ----------------------
-(setq user-mail-address "daniel.f.bengtsson@gmail.com")
 (set-language-environment "Latin-1")
 (setq european-calendar-style 't              ; European style calendar
       calendar-week-start-day 1               ; Week starts monday
