@@ -8,12 +8,10 @@
 ;;; Writing
 ;;;---------------------------------------------------------
 (use-package dictcc
-  :ensure t
   :bind (("s-t" . dictcc))
   :config (setq dictcc-source-lang "en"
                 dictcc-destination-lang "sv"))
 (use-package flyspell
-  :ensure t
   :hook ((text-mode . flyspell-mode)
          (prog-mode . flyspell-prog-mode))
   :config (setq flyspell-issue-message-flag nil)
@@ -21,7 +19,6 @@
   :delight)
 
 (use-package flyspell-popup
-  :ensure t
   :hook (flyspell-mode . flyspell-popup-auto-correct-mode)
   :after flyspell
   :bind (("C-:" . flyspell-popup-correct)))
@@ -39,19 +36,16 @@
         ido-default-buffer-method 'selected-window))
 
 (use-package move-text
-  :ensure t
   :config
   (move-text-default-bindings))
 
 (use-package smex
-  :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
          ("C-c C-c M-x" . execute-extended-command))
   :config (setq smex-history-length 20))
 
-(use-package diminish
-  :ensure t)
+(use-package diminish)
 ;;;---------------------------------------------------------
 
 ;;; Code editing modes and helper functions
@@ -59,13 +53,11 @@
 ;;;;; Major modes
 ;;;;; ------------------------------------------------------
 (use-package json-mode
-  :ensure t
   :hook (prog-mode . highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'character
                 highlight-indent-guides-responsive 'top))
 
 (use-package markdown-mode
-  :ensure t
   :mode "\\.markdown\\'" "\\.md\\'")
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -75,25 +67,21 @@
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 (use-package graphviz-dot-mode
-  :ensure t
   :config (setq graphviz-dot-view-command "eog"
                 graphviz-dot-view-edit-command t
                 graphviz-dot-save-before-view t))
 ;;;;; ------------------------------------------------------
 
 (use-package ggtags
-  :ensure t
   :config (setq ggtags-mode-line-project-name nil)
   :hook (prog-mode . ggtags-mode))
 
 (use-package highlight-indent-guides
-  :ensure t
   :hook (prog-mode . highlight-indent-guides-mode )
   :config (setq highlight-indent-guides-method 'character
                 highlight-indent-guides-responsive 'top))
 
 (use-package whitespace
-  :ensure t
   :bind (("C-c T w" . whitespace-mode))
   :hook ((prog-mode . whitespace-mode)
          (text-mode . whitespace-mode)
@@ -104,7 +92,6 @@
   :delight)
 
 (use-package yasnippet
-  :ensure t
   :init
   (let ((orig (lookup-key global-map (kbd "TAB"))))
     (yas-global-mode 1)
@@ -112,32 +99,26 @@
     (define-key yas-minor-mode-map [(tab)] orig))
   :diminish yas-minor-mode)
 
-(use-package yasnippet-snippets
-  :ensure t)
+(use-package yasnippet-snippets)
 
 (use-package change-inner
-  :ensure t
   :bind (("M-i" . change-inner)
          ("M-o" . change-outer)))
 
 ;;;;; Flycheck linters
 ;;;;; ------------------------------------------------------
 (use-package flycheck
-  :ensure t
   :config
   :init (progn (global-flycheck-mode)
                (setq flycheck-emacs-lisp-load-path 'inherit)))
 
-(use-package flycheck-demjsonlint
-  :ensure t)
+(use-package flycheck-demjsonlint)
 
 (use-package flycheck-checkbashisms
-  :ensure t
   :config
   (flycheck-checkbashisms-setup))
 
 (use-package flycheck-popup-tip
-  :ensure t
   :after flycheck
   :hook  (flycheck-mode . flycheck-popup-tip-mode))
 
@@ -156,23 +137,19 @@
 ;;;;; Company code completion and backends
 ;;;;; ------------------------------------------------------
 (use-package company
-  :ensure t
   :bind (("s-:" . company-complete))
   :init (global-company-mode)
   :diminish)
 
 (use-package company-jedi
-  :ensure t
   :after company
   :init (add-to-list 'company-backends 'company-jedi))
 
 (use-package company-c-headers
-  :ensure t
   :after company
   :init (add-to-list 'company-backends 'company-c-headers))
 
 (use-package company-shell
-  :ensure t
   :after company
   :init (add-to-list 'company-backends 'company-shell))
 
@@ -185,10 +162,9 @@
 
 ;;; Visuals
 ;;;---------------------------------------------------------
-(use-package ample-zen-theme
-  :ensure t)
+(use-package ample-zen-theme)
+
 (use-package mode-icons
-  :ensure t
   :after flycheck
   :init (progn
           (mode-icons-mode)
@@ -198,12 +174,10 @@
 ;;; Productivity
 ;;;---------------------------------------------------------
 (use-package todotxt
-  :ensure t
   :bind (("C-x t" . todotxt))
   :config (setq todotxt-file "~/.todo/todo.txt"))
 
 (use-package cheatsheet
-  :ensure t
   :bind ("s-c" . cheatsheet-show)
   :init (load "my-cheatsheet"))
 ;;;---------------------------------------------------------

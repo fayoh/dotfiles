@@ -55,7 +55,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (load "my-functions") ; Load convenience functions used later in the init
 (load "early-init" t) ; Load early-init if it exists
-()
+
 ;; Package setup
 ;; -------------
 (require 'package)
@@ -90,6 +90,9 @@
       inhibit-startup-echo-area-message t)
 
 
+;; Global modes
+;; ------------
+(global-cwarn-mode 1)
 
 ;; Locale and environment
 ;; ----------------------
@@ -141,8 +144,9 @@
 ;; Load package configs
 ;; --------------------
 (require 'use-package)
+(setq use-package-always-ensure t)
 (use-package load-dir
-  :ensure t)
+  :demand t)
 (setq load-dir-recursive t)
 (load-dir-one (concat user-emacs-directory "conf.d"))
 
