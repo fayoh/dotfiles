@@ -2,7 +2,6 @@
 antigen use oh-my-zsh
 
 # Git conveniences
-antigen bundle git-prompt
 antigen bundle smallhadroncollider/antigen-git-rebase
 
 # Help me with apt!
