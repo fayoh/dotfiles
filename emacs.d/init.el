@@ -63,6 +63,7 @@
 (add-to-list 'package-archives
              '("MELPA" . "http://melpa.org/packages/") t)
 (package-initialize)
+(defun package--save-selected-packages (&rest opt) nil) ;Don't write the list
 ;;fetch the list of packages available if not already downloaded
 (unless package-archive-contents
   (package-refresh-contents))
