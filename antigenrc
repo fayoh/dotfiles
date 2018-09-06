@@ -10,6 +10,9 @@ antigen bundle debian
 # Navigate directories
 antigen bundle dirhistory
 
+# Autoclose delimiters like " and {
+antigen bundle hlissner/zsh-autopair
+
 # Syntax highlighting bundle.
 antigen bundle  zsh-users/zsh-syntax-highlighting
 
@@ -24,6 +27,22 @@ antigen bundle zsh-users/zaw
 
 # Remind me that I made aliases
 antigen bundle "MichaelAquilina/zsh-you-should-use"
+
+# Make simple calculations without starting bc or other
+antigen bundle arzzen/calc.plugin.zsh
+
+# Make it slightly easier to read man pages
+antigen bundle colored-man-pages
+
+# Automatically activate a pipenv when entering directory
+antigen bundle owenstranathan/pipenv.zsh
+
+# Somewhat powerline like theme that works without fonts and such
+# antigen bundle martinrotter/powerless
+
+# Lightish theme with git status in right prompt
+antigen theme maniat1k/birame
+
 
 antigen apply
 
