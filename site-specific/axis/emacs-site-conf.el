@@ -6,10 +6,6 @@
 (require 'use-package)
 (setq user-mail-address "danielfb@axis.com")
 
-;; bb-mode for bitbake recipes
-(use-package bb-mode
-  :mode "\\.bb$" "\\.bbappend$" "\\.bbclass$")
-
 (defun get-oe-module-name ()
   "Find the git top directory and use that as module name.
 This should work for all gits checked out with devtool modify
