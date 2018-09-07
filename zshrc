@@ -190,6 +190,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Somewhere this gets set to latin1 and screws up newer formatting
+unset LESSCHARSET
+
 # Enable local override
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
