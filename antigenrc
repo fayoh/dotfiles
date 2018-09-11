@@ -34,9 +34,6 @@ antigen bundle arzzen/calc.plugin.zsh
 # Make it slightly easier to read man pages
 antigen bundle colored-man-pages
 
-# Automatically activate a pipenv when entering directory
-antigen bundle owenstranathan/pipenv.zsh
-
 # Somewhat powerline like theme that works without fonts and such
 # antigen bundle martinrotter/powerless
 
