@@ -12,12 +12,12 @@
     ~/.emacs.d:
     ~/.gitconfig:
     ~/.gitignore_global:
+    ~/.local/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
+    ~/.local/etc/gtags.conf: 'gtags.conf'
     ~/.pyenv: 'submodules/pyenv'
     ~/.tmux/plugins/tpm: 'submodules/tpm'
     ~/.tmux.conf:
     ~/.zshrc:
-    ~/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
-    ~/.local/etc/gtags.conf: 'gtags.conf'
 
 - shell:
   - [git submodule update --init --recursive, Installing/updating submodules]

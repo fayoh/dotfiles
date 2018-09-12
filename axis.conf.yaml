@@ -7,5 +7,5 @@
     ~/.emacs.d/elisp/early-init.el: 'site-specific/axis/emacs-early-init.el'
     ~/.emacs.d/conf.d/axis-config.el: 'site-specific/axis/emacs-site-conf.el'
     ~/.gitconfig_local: 'site-specific/axis/.gitconfig_local'
+    ~/.local/bin/gitproxy.sh : 'site-specific/axis/gitproxy.sh'
     ~/.zshrc_local : 'site-specific/axis/zshrc_local'
-    ~/bin/gitproxy.sh : 'site-specific/axis/gitproxy.sh'

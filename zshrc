@@ -1,6 +1,6 @@
 # Antigen
 # This is an extension loading system for zshell
-source ~/bin/antigen.zsh
+source ~/.local/bin/antigen.zsh
 antigen init ~/.antigenrc
 
 # Enable parameter expansion and other substitutions in the $PROMPT.
