@@ -185,10 +185,13 @@ alias suedit='sudo nano'
 export EDITOR=${termedit}
 export VISUAL=${termedit}
 
-#Pyenv
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Virtualenv
+export VIRTUAL_ENV_DISABLE_PROMPT=true # Don't replace my prompt
 
 # Somewhere this gets set to latin1 and screws up newer formatting
 unset LESSCHARSET
