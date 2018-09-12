@@ -74,7 +74,8 @@
 
 (use-package ggtags
   :config (setq ggtags-mode-line-project-name nil)
-  :hook (prog-mode . ggtags-mode))
+  :hook (prog-mode . ggtags-mode)
+  :diminish ggtags-mode)
 
 (use-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode )
