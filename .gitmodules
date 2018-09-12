@@ -4,3 +4,9 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "submodules/tpm"]
+	path = submodules/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "submodules/pyenv"]
+	path = submodules/pyenv
+	url = https://github.com/pyenv/pyenv.git
