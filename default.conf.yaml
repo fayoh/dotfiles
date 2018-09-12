@@ -11,8 +11,10 @@
     ~/.emacs.d:
     ~/.gitconfig:
     ~/.gitignore_global:
+    ~/.pyenv: 'submodules/pyenv'
+    ~/.tmux/plugins/tpm: 'submodules/tpm'
     ~/.zshrc:
-    ~/bin/antigen.zsh: 'antigen/bin/antigen.zsh'
+    ~/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
     ~/.local/etc/gtags.conf: 'gtags.conf'
 
 - shell:
