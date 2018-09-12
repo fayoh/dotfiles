@@ -13,6 +13,7 @@
     ~/.gitignore_global:
     ~/.pyenv: 'submodules/pyenv'
     ~/.tmux/plugins/tpm: 'submodules/tpm'
+    ~/.tmux.conf:
     ~/.zshrc:
     ~/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
     ~/.local/etc/gtags.conf: 'gtags.conf'
