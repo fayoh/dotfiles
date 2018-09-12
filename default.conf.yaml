@@ -6,6 +6,7 @@
 - clean: ['~', '~/bin']
 
 - link:
+    ~/.config/sakura/sakura.conf: 'sakura.conf'
     ~/.dotfiles: ''
     ~/.antigenrc:
     ~/.emacs.d:
