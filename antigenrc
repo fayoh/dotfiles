@@ -40,8 +40,14 @@ antigen bundle colored-man-pages
 # Lightish theme with git status in right prompt
 antigen theme maniat1k/birame
 
+# Colors for your cat!
+antigen bundle colorize
 
 antigen apply
 
 bindkey '^R' zaw-history
 bindkey '^L' zaw-locate
+
+cless() {
+    colorize_via_pygmentize $1 | less
+}
