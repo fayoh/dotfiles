@@ -1,0 +1,8 @@
+Software packages I usually want installed
+==========================================
+MCU dev
+-------
+* arm-none-eabi cross compiler
+* SDCC http://sdcc.sourceforge.net/
+* OpenOCD http://openocd.org/
+* stm8flash https://github.com/vdudouyt/stm8flash
