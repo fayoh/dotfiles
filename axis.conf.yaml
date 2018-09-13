@@ -3,7 +3,7 @@
       create: true
       relink: true
 - shell:
-  - ['if [ ! -d site-specific/axis/scripts ];then; git clone -q ssh://danielfb@gittools.se.axis.com:29418/users/danielfb/scripts site-specific/axis/scripts;fi', Get scripts repo]
+  - ['./clone.sh ssh://danielfb@gittools.se.axis.com:29418/users/danielfb/scripts site-specific/axis/repos/scripts', Get scripts repo]
 
 - link:
     ~/.emacs.d/elisp/early-init.el: 'site-specific/axis/emacs-early-init.el'
@@ -12,8 +12,8 @@
     ~/.local/bin/gitproxy.sh : 'site-specific/axis/gitproxy.sh'
     ~/.local/bin/:
         glob: true
-	path: site-specific/axis/repos/scripts/*
+        path: site-specific/axis/repos/scripts/*
     ~/.ssh/config: 'site-specific/axis/ssh_config'
     ~/.zshrc.d/:
-	glob: true
-	path: site-specific/axis/zshrc.d/*
+        glob: true
+        path: site-specific/axis/zshrc.d/*
