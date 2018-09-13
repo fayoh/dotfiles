@@ -12,6 +12,8 @@
     ~/.local/bin/gitproxy.sh : 'site-specific/axis/gitproxy.sh'
     ~/.local/bin/:
         glob: true
-        path: site-specific/axis/scripts/*
+	path: site-specific/axis/repos/scripts/*
     ~/.ssh/config: 'site-specific/axis/ssh_config'
-    ~/.zshrc_local : 'site-specific/axis/zshrc_local'
+    ~/.zshrc.d/:
+	glob: true
+	path: site-specific/axis/zshrc.d/*

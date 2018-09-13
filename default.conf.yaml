@@ -18,6 +18,9 @@
     ~/.tmux/plugins/tpm: 'submodules/tpm'
     ~/.tmux.conf:
     ~/.zshrc:
+    ~/.zshrc.d/:
+        glob: true
+        path: zshrc.d/*
 
 - shell:
   - [git submodule update --init --recursive, Installing/updating submodules]
