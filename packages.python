@@ -2,6 +2,11 @@ flake8
 flake8-bugbear
 jedi
 pipenv
-proselint2
+proselint
+ptpython
 pygments
+pylint
+pyserial
+qtodotxt2
+requests
 requests

@@ -9,7 +9,7 @@
 [core]
         whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
         excludesfile = ~/.gitignore_global
-        editor = emacsclient --alternate-editor=\"\"
+        editor = emacsclient -t --alternate-editor=\"\"
 [push]
         default = tracking
 [rebase]
