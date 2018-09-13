@@ -1,0 +1,17 @@
+Host gittools.se.axis.com gittools
+   ForwardX11 no
+
+Host dbtools01.se.axis.com
+   ForwardX11 no
+
+# To avoid having to remove keys from the known_hosts file every time a
+# device has been flashed, use StrictHostKeyChecking and UserKnownHostsFile.
+Host 192.168.0.*
+   StrictHostKeyChecking no
+   UserKnownHostsFile /dev/null
+   ForwardX11 no
+
+Host 172.27.65.*
+   StrictHostKeyChecking no
+   UserKnownHostsFile /dev/null
+   ForwardX11 no
