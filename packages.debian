@@ -1,1 +1,10 @@
-global python3
+global
+python3
+# qtodotxt
+python3-pyqt5
+python3-pyqt5.qtquick
+qml-module-qtquick-controls
+qml-module-qtquick-dialogs
+qml-module-qt-labs-settings
+qml-module-qt-labs-folderlistmodel
+qml-module-qtqml-models2
