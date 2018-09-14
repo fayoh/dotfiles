@@ -1,8 +1,8 @@
+demjson
 flake8
 flake8-bugbear
 jedi
 lazygit
-pipenv
 proselint
 ptpython
 pygments
