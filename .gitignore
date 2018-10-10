@@ -9,3 +9,5 @@ emacs.d/conf.d/axis-config.el
 emacs.d/conf.d/home-config.el
 emacs.d/session*
 site-specific/*/repos
+emacs.d/tramp
+emacs.d/eshell
