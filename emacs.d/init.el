@@ -94,6 +94,7 @@
 			    json-mode
 			    markdown-mode
 			    mode-icons
+			    move-text
 			    todotxt
 			    whitespace
 			    yasnippet
