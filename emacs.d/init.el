@@ -48,6 +48,7 @@
 ;;          (t
 ;;           ;; Console-specific code
 ;;           ))
+;; Update: use :when window-system in use-package
 
 ;; ===========================================================================
 ;; General settings and internal packages.
@@ -67,10 +68,41 @@
 ;;fetch the list of packages available if not already downloaded
 (unless package-archive-contents
   (package-refresh-contents))
-;;install use-package if needed to handle all other installations
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
 
+;; List of packages to install
+(setq packages-to-install '(
+			    use-package
+			    ample-zen-theme
+			    change-inner
+			    cheatsheet
+			    company
+			    company-c-headers
+			    company-jedi
+			    company-quickhelp
+			    company-shell
+			    dictcc
+			    diminish
+			    flycheck
+			    flycheck-checkbashisms
+			    flycheck-popup-tip
+			    flyspell
+			    flyspell-popup
+			    ggtags
+			    graphviz-dot-mode
+			    highlight-indent-guides
+			    ivy
+			    json-mode
+			    markdown-mode
+			    mode-icons
+			    todotxt
+			    whitespace
+			    yasnippet
+			    yasnippet-snippets
+			    ))
+; install the missing packages
+(dolist (package packages-to-install)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;; Visuals
 ;; -------
@@ -102,6 +134,10 @@
       calendar-week-start-day 1               ; Week starts monday
       ps-paper-type 'a4                       ; Specify printing format
       ispell-dictionary "english")            ; Set ispell dictionary
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-language-environment 'utf-8)
+(set-selection-coding-system 'utf-8)
 
 (setq grep-command "grep -i -nH -e ")
 
