@@ -11,3 +11,5 @@ emacs.d/session*
 site-specific/*/repos
 emacs.d/tramp
 emacs.d/eshell
+
+emacs.d/projectile-bookmarks.eld
