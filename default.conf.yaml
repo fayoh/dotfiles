@@ -3,13 +3,17 @@
       create: true
       relink: true
 
-- clean: ['~', '~/bin']
+- clean: ['~', '~/.local/bin']
 
 - link:
     ~/.config/sakura/sakura.conf: 'sakura.conf'
     ~/.dotfiles: ''
     ~/.antigenrc:
-    ~/.emacs.d:
+    ~/.emacs.d/init.el: 'emacs.d/init.el'
+    ~/.emacs.d/custom.el: 'emacs.d/custom.el'
+    ~/.emacs.d/conf.d/general-config.el: 'emacs.d/conf.d/general-config.el'
+    ~/.emacs.d/elisp/my-functions.el: 'emacs.d/elisp/my-functions.el'
+    ~/.emacs.d/elisp/my-cheatsheet.el: 'emacs.d/elisp/my-cheatsheet.el'
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.local/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
