@@ -44,5 +44,17 @@ NOT-RECURSIVE do not enter subdirectories"
              (message
               (concat "Saved as script: " buffer-file-name)))))
 
+
+(defun package-list-unaccounted-packages ()
+  "Like `package-list-packages', but show only the packages that.
+are installed and are not in `packages-to-install'.  Useful for
+cleaning out unwanted packages."
+  (interactive)
+  (package-show-package-list
+   (remove-if-not (lambda (x) (and (not (memq x packages-to-install))
+				   (not (package-built-in-p x))
+				   (package-installed-p x)))
+		  (mapcar 'car package-archive-contents))))
+
 (provide 'my-functions)
 ;;; my-functions.el ends here
