@@ -32,6 +32,36 @@
 
 ;;; Emacs behaviour
 ;;;---------------------------------------------------------
+(when (memq 'ivy packages-to-configure)
+  (use-package ivy
+    :init (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t
+	  enable-recursive-minibuffers t
+	  ivy-use-selectable-prompt t)
+    :diminish ivy-mode))
+
+(when (memq 'counsel packages-to-configure)
+  (use-package counsel
+    :init (counsel-mode 1)
+    :bind (("<f1> l" . counsel-find-library)
+	   ("<f2> i" . counsel-info-lookup-symbol)
+	   ("<f2> u" . counsel-unicode-char)
+	   ("C-c g" . 'counsel-git)
+	   ("C-c j" . 'counsel-git-grep)
+	   ("C-c k" . 'counsel-ag)
+	   ("C-c l" . 'counsel-locate))
+    :diminish counsel-mode)
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+
+(when (memq 'ivy-prescient packages-to-configure)
+  (use-package ivy-prescient
+    :init (ivy-prescient-mode 1)
+    :bind (("<f6>" . ivy-resume)
+	   )
+    :diminish ivy-prescient-mode)
+  (prescient-persist-mode 1))
+
+
 (when (memq 'ido packages-to-configure)
   (use-package ido
     :init (ido-mode t)

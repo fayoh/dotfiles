@@ -81,6 +81,7 @@
     company-jedi
     company-quickhelp
     company-shell
+    counsel
     dictcc
     diminish
     flycheck
@@ -92,11 +93,11 @@
     graphviz-dot-mode
     highlight-indent-guides
     ivy
+    ivy-prescient
     json-mode
     markdown-mode
     mode-icons
     move-text
-    todotxt
     whitespace
     yasnippet
     yasnippet-snippets

@@ -51,7 +51,7 @@ are installed and are not in `packages-to-install'.  Useful for
 cleaning out unwanted packages."
   (interactive)
   (package-show-package-list
-   (remove-if-not (lambda (x) (and (not (memq x packages-to-install))
+   (remove-if-not (lambda (x) (and (not (memq x packages-to-configure))
 				   (not (package-built-in-p x))
 				   (package-installed-p x)))
 		  (mapcar 'car package-archive-contents))))
