@@ -61,6 +61,11 @@
     :diminish ivy-prescient-mode)
   (prescient-persist-mode 1))
 
+(when (memq 'ivy-rich packages-to-configure)
+  (use-package ivy-rich
+    :config (setq ivy-rich-path-style 'abbrev)
+    :init (ivy-rich-mode 1)))
+
 
 (when (memq 'ido packages-to-configure)
   (use-package ido

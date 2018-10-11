@@ -97,6 +97,7 @@
     highlight-indent-guides
     ivy
     ivy-prescient
+    ivy-rich
     json-mode
     markdown-mode
     mode-icons
@@ -108,7 +109,8 @@
     "Packages to install from package manager.")
 
 (defvar packages-to-configure
-  (append '() packages-to-install)
+  (append '(counsel-projectile,
+	    counsel-tramp) packages-to-install)
   "Include deps or manually cloned packages that needs to be configured.")
 
 ; install the missing packages
@@ -141,7 +143,6 @@
 
 ;; Locale and environment
 ;; ----------------------
-(set-language-environment "Latin-1")
 (setq european-calendar-style 't              ; European style calendar
       calendar-week-start-day 1               ; Week starts monday
       ps-paper-type 'a4                       ; Specify printing format
@@ -172,7 +173,8 @@
  show-trailing-whitespace t           ; Always show trailing whitespace
  kill-read-only-ok t                  ; Copy text in read only buffers
  case-fold-search t                   ; Case insensitive search
- vc-follow-symlinks t)                ; Follow symlinks to repos
+ vc-follow-symlinks t                 ; Follow symlinks to repos
+ gc-cons-threshold (* 10 1024 1024))  ; Reduce the frequency of garbage collection (default is 0.76MB, this sets it to 10MB)
 
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
