@@ -89,6 +89,7 @@
     flycheck-checkbashisms
     flycheck-flawfinder
     flycheck-popup-tip
+    flylisp
     flyspell
     flyspell-popup
     ggtags

@@ -134,6 +134,10 @@
     :config (global-diff-hl-mode)
     (diff-hl-flydiff-mode)))
 
+(when (memq 'flylisp packages-to-configure)
+  (use-package flylisp
+    :hook (emacs-lisp-mode . flylisp-mode)))
+
 ;; Built-in
 (use-package whitespace
   :bind (("C-c T w" . whitespace-mode))
