@@ -70,36 +70,43 @@
   (package-refresh-contents))
 
 ;; List of packages to install
-(setq packages-to-install '(
-			    use-package
-			    ample-zen-theme
-			    change-inner
-			    cheatsheet
-			    company
-			    company-c-headers
-			    company-jedi
-			    company-quickhelp
-			    company-shell
-			    dictcc
-			    diminish
-			    flycheck
-			    flycheck-checkbashisms
-			    flycheck-popup-tip
-			    flyspell
-			    flyspell-popup
-			    ggtags
-			    graphviz-dot-mode
-			    highlight-indent-guides
-			    ivy
-			    json-mode
-			    markdown-mode
-			    mode-icons
-			    move-text
-			    todotxt
-			    whitespace
-			    yasnippet
-			    yasnippet-snippets
-			    ))
+(defvar packages-to-install
+  '(
+    use-package
+    ample-zen-theme
+    change-inner
+    cheatsheet
+    company
+    company-c-headers
+    company-jedi
+    company-quickhelp
+    company-shell
+    dictcc
+    diminish
+    flycheck
+    flycheck-checkbashisms
+    flycheck-popup-tip
+    flyspell
+    flyspell-popup
+    ggtags
+    graphviz-dot-mode
+    highlight-indent-guides
+    ivy
+    json-mode
+    markdown-mode
+    mode-icons
+    move-text
+    todotxt
+    whitespace
+    yasnippet
+    yasnippet-snippets
+    )
+    "Packages to install from package manager.")
+
+(defvar packages-to-configure
+  (append '() packages-to-install)
+  "Include deps or manually cloned packages that needs to be configured.")
+
 ; install the missing packages
 (dolist (package packages-to-install)
   (unless (package-installed-p package)
@@ -182,7 +189,6 @@
 ;; Load package configs
 ;; --------------------
 (require 'use-package)
-(setq use-package-always-ensure t)
 (use-package load-dir
   :demand t)
 (setq load-dir-recursive t)
