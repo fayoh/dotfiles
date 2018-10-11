@@ -86,6 +86,7 @@
     diminish
     flycheck
     flycheck-checkbashisms
+    flycheck-flawfinder
     flycheck-popup-tip
     flyspell
     flyspell-popup

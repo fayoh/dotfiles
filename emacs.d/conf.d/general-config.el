@@ -180,6 +180,11 @@
 
 (when (memq 'flycheck packages-to-configure)
   (add-to-list 'flycheck-checkers 'proselint))
+
+;; TODO: Why does this not get triggered?
+(when (memq 'flycheck-flawfinder packages-to-configure)
+  :init (flycheck-flawfinder-setup)
+  (flycheck-add-next-checker 'c/c++-gcc '(warning . flawfinder)))
 ;;;;; ------------------------------------------------------
 
 ;;;;; Company code completion and backends
