@@ -83,6 +83,7 @@
     company-shell
     counsel
     dictcc
+    diff-hl
     diminish
     flycheck
     flycheck-checkbashisms

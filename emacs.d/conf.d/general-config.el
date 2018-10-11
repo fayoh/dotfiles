@@ -125,6 +125,15 @@
 		  highlight-indent-guides-responsive 'top)
     :diminish highlight-indent-guides-mode))
 
+(when (memq 'diff-hl packages-to-configure)
+  (use-package diff-hl
+    :bind (("C-x v g" . diff-hl-diff-goto-hunk)
+	   ("C-x v r" . diff-hl-revert-hunk)
+	   ("C-c v p" . diff-hl-previous-hunk)
+	   ("C-c v n" . diff-hl-next-hunk))
+    :config (global-diff-hl-mode)
+    (diff-hl-flydiff-mode)))
+
 ;; Built-in
 (use-package whitespace
   :bind (("C-c T w" . whitespace-mode))
