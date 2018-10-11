@@ -67,14 +67,12 @@
 
 (cheatsheet-add-group 'Magit
                       '(:key "" :description "")
-                      '(:key "" :description "")
-                      )
+		      '(:key "" :description ""))
 
 
 (cheatsheet-add-group 'GDB
                       '(:key "" :description "")
-                      '(:key "" :description "")
-                      )
+		      '(:key "" :description ""))
 
 (when (package-installed-p 'todotxt)
   (cheatsheet-add-group 'Todo.txt
@@ -210,8 +208,7 @@
 
 (cheatsheet-add-group 'Graphviz-dot-mode
                       '(:key "C-c p" :description "Preview image")
-                      '(:key "C-c v" :description "View in external viewer")
-                      )
+		      '(:key "C-c v" :description "View in external viewer"))
 
 (provide 'my-cheatsheet)
 ;;; my-cheatsheet ends here
