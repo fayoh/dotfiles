@@ -1,15 +1,1 @@
-emacs.d/elpa
-emacs.d/auto-save-list
-emacs.d/.python-environments/
-emacs.d/smex-items
-emacs.d/ido.last
-emacs.d/bookmarks
-emacs.d/elisp/early-init.el
-emacs.d/conf.d/axis-config.el
-emacs.d/conf.d/home-config.el
-emacs.d/session*
 site-specific/*/repos
-emacs.d/tramp
-emacs.d/eshell
-
-emacs.d/projectile-bookmarks.eld
