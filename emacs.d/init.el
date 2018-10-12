@@ -191,6 +191,7 @@
 (global-set-key (kbd "C-p") 'previous-error)
 (global-set-key (kbd "C-<tab>") 'other-window)
 (global-set-key (kbd "C-c t") 'balle-grep-todos-in-dir)
+(global-set-key (kbd "s-SPC") 'just-one-space)
 
 ;; Load package configs
 ;; --------------------

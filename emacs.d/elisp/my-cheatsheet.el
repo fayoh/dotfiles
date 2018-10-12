@@ -38,6 +38,7 @@
 		      '(:key "C-c v p" :description  "diff-hl-previous-hunk")
 		      '(:key "C-c v n" :description  "diff-hl-next-hunk")
 		      '(:key "C-<tab>" :description "Go to other window")
+		      '(:key "s-SPC" :description "Reduce multiple blanks to one")
 		      '(:key "s-t" :description "Look up word on dictcc")
 		      '(:key "s-:" :description "Manually initiate autocomplete")
 		      '(:key "f2 u" :description "Insert unicode character")
