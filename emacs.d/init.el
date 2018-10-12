@@ -80,9 +80,11 @@
     company
     company-c-headers
     company-jedi
+    company-prescient
     company-quickhelp
     company-shell
     counsel
+    counsel-projectile
     dictcc
     diff-hl
     diminish
@@ -103,6 +105,7 @@
     markdown-mode
     mode-icons
     move-text
+    projectile
     whitespace
     yasnippet
     yasnippet-snippets
@@ -110,7 +113,7 @@
     "Packages to install from package manager.")
 
 (defvar packages-to-configure
-  (append '(counsel-projectile,
+  (append '(,
 	    counsel-tramp) packages-to-install)
   "Include deps or manually cloned packages that needs to be configured.")
 

@@ -183,9 +183,20 @@
                       '(:key "C-c RET C-b" :description "makefile-bsdmake-mode")
                       '(:key "C-c RET C-g" :description "makefile-gmake-mode")
                       '(:key "C-c RET TAB" :description "makefile-imake-mode")
-                      '(:key "C-c RET RET" :description "makefile-mode")
-                      '(:key "C-c RET C-p" :description "makefile-makepp-mode"))
+		      '(:key "C-c RET RET" :description "makefile-mode")
+		      '(:key "C-c RET C-p" :description "makefile-makepp-mode"))
 
+(cheatsheet-add-group 'Projectile
+		      '(:key "s-p p" :description "Switch project")
+		      '(:key "s-p SPC" :description "Jump to a project buffer or file, or switch project")
+		      '(:key "s-p f" :description "Find file in project")
+		      '(:key "s-p g" :description "Find file dwim")
+		      '(:key "s-p d" :description "Find directory in project")
+		      '(:key "s-p b" :description "Jump to a project buffer")
+		      '(:key "s-p s s" :description "Search project with ag")
+		      '(:key "s-p" :description "")
+		      '(:key "s-p" :description "")
+		      )
 (cheatsheet-add-group 'yasnippet
 		      '(:key "C-c & C-n" :description "yas-new-snippet")
 		      '(:key "C-c & C-s" :description "yas-insert-snippet")

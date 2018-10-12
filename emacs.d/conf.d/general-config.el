@@ -64,6 +64,11 @@
     :diminish ivy-prescient-mode)
   (prescient-persist-mode 1))
 
+(when (memq 'company-prescient packages-to-configure)
+  (use-package company-prescient
+    :init (company-prescient-mode 1)
+    :diminish company-prescient-mode))
+
 (when (memq 'ivy-rich packages-to-configure)
   (use-package ivy-rich
     :config (setq ivy-rich-path-style 'abbrev)
@@ -266,6 +271,21 @@
   (use-package cheatsheet
     :bind ("s-c" . cheatsheet-show)
     :init (load "my-cheatsheet")))
+
+(when (memq 'projectile packages-to-configure)
+  (use-package projectile
+    :config
+    (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    (projectile-mode +1)
+    :diminish projectile-mode))
+
+(when (memq 'counsel-projectile packages-to-configure)
+  (use-package counsel-projectile
+    :config
+    ;; This will turn on projectile-mode again, but keep it in
+    ;; projectile if this package is not installed
+    (counsel-projectile-mode +1)))
 ;;;---------------------------------------------------------
 
 (provide 'general-config)
