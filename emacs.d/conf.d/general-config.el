@@ -151,8 +151,10 @@
 	   ("C-x v r" . diff-hl-revert-hunk)
 	   ("C-c v p" . diff-hl-previous-hunk)
 	   ("C-c v n" . diff-hl-next-hunk))
-    :config (global-diff-hl-mode)
-    (diff-hl-flydiff-mode)))
+    :demand
+    :config
+    (diff-hl-flydiff-mode)
+    (global-diff-hl-mode)))
 
 (when (memq 'flylisp packages-to-configure)
   (use-package flylisp
