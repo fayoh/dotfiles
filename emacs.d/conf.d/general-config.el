@@ -24,7 +24,6 @@
 
 (when (memq 'flyspell-popup packages-to-configure)
   (use-package flyspell-popup
-    :hook (flyspell-mode . flyspell-popup-auto-correct-mode)
     :after flyspell
     :bind (("C-:" . flyspell-popup-correct))))
 ;;;---------------------------------------------------------
