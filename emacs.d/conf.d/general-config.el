@@ -38,6 +38,9 @@
     (setq ivy-use-virtual-buffers t
 	  enable-recursive-minibuffers t
 	  ivy-use-selectable-prompt t)
+    :bind (:map ivy-minibuffer-map
+		(("C-j" . 'ivy-immediate-done)
+		 ("RET" . 'ivy-alt-done)))
     :diminish ivy-mode))
 
 (when (memq 'counsel packages-to-configure)
