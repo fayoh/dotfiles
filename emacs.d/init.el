@@ -73,6 +73,7 @@
 (defvar packages-to-install
   '(
     use-package
+    all-the-icons-ivy
     ample-zen-theme
     change-inner
     cheatsheet

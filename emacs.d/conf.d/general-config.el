@@ -66,6 +66,9 @@
     :config (setq ivy-rich-path-style 'abbrev)
     :init (ivy-rich-mode 1)))
 
+(when (memq 'all-the-icons-ivy packages-to-configure)
+  (use-package all-the-icons-ivy
+    :config (all-the-icons-ivy-setup)))
 
 (when (memq 'ido packages-to-configure)
   (use-package ido
