@@ -42,6 +42,10 @@
 		 ("RET" . 'ivy-alt-done)))
     :diminish ivy-mode))
 
+(when (memq 'swiper packages-to-configure)
+  (use-package swiper
+    :bind ("C-s" . 'swiper)))
+
 (when (memq 'counsel packages-to-configure)
   (use-package counsel
     :init (counsel-mode 1)

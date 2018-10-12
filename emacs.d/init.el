@@ -106,6 +106,7 @@
     mode-icons
     move-text
     projectile
+    swiper
     whitespace
     yasnippet
     yasnippet-snippets
@@ -113,7 +114,7 @@
     "Packages to install from package manager.")
 
 (defvar packages-to-configure
-  (append '(,
+  (append '(
 	    counsel-tramp) packages-to-install)
   "Include deps or manually cloned packages that needs to be configured.")
 
