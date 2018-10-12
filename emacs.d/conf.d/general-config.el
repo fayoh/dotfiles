@@ -51,9 +51,10 @@
 	   ("C-c g" . 'counsel-git)
 	   ("C-c j" . 'counsel-git-grep)
 	   ("C-c k" . 'counsel-ag)
-	   ("C-c l" . 'counsel-locate))
-    :diminish counsel-mode)
-  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+	   ("C-c l" . 'counsel-locate)
+	   :map ivy-minibuffer-map
+	   ("C-r" . 'counsel-minibuffer-history))
+    :diminish counsel-mode))
 
 (when (memq 'ivy-prescient packages-to-configure)
   (use-package ivy-prescient
