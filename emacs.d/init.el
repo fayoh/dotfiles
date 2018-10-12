@@ -73,6 +73,7 @@
 (defvar packages-to-install
   '(
     use-package
+    aggressive-indent
     all-the-icons-ivy
     ample-zen-theme
     change-inner
@@ -111,7 +112,7 @@
     yasnippet
     yasnippet-snippets
     )
-    "Packages to install from package manager.")
+  "Packages to install from package manager.")
 
 (defvar packages-to-configure
   (append '(

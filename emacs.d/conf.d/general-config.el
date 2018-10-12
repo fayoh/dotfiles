@@ -185,6 +185,11 @@
     :bind (("M-i" . change-inner)
 	   ("M-o" . change-outer))))
 
+(when (memq 'aggressive-indent packages-to-configure)
+  (use-package aggressive-indent
+    :hook (prog-mode . aggressive-indent-mode)
+    :diminish))
+
 ;;;;; Flycheck linters
 ;;;;; ------------------------------------------------------
 (when (memq 'flycheck packages-to-configure)
