@@ -102,6 +102,10 @@
 	   ("M-X" . smex-major-mode-commands)
 	   ("C-c C-c M-x" . execute-extended-command))
     :config (setq smex-history-length 20)))
+
+(when (memq 'yafolding packages-to-configure)
+  (use-package yafolding
+    :hook (prog-mode . yafolding-mode)))
 ;;;---------------------------------------------------------
 
 ;;; Code editing modes and helper functions

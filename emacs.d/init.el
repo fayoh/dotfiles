@@ -103,12 +103,14 @@
     ivy-prescient
     ivy-rich
     json-mode
+    load-dir
     markdown-mode
     mode-icons
     move-text
     projectile
     swiper
     whitespace
+    yafolding
     yasnippet
     yasnippet-snippets
     )
@@ -181,7 +183,7 @@
  case-fold-search t                   ; Case insensitive search
  vc-follow-symlinks t                 ; Follow symlinks to repos
  gc-cons-threshold (* 10 1024 1024))  ; Reduce the frequency of garbage collection (default is 0.76MB, this sets it to 10MB)
-
+(require 'log-edit)
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
 (setq custom-file (concat user-emacs-directory "custom.el"))
