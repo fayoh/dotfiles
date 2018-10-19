@@ -12,12 +12,12 @@
   (use-package dictcc
     :bind (("s-t" . dictcc))
     :config (setq dictcc-source-lang "en"
-		  dictcc-destination-lang "sv")))
+                  dictcc-destination-lang "sv")))
 
 (when (memq 'flyspell packages-to-configure)
   (use-package flyspell
     :hook ((text-mode . flyspell-mode)
-	   (prog-mode . flyspell-prog-mode))
+           (prog-mode . flyspell-prog-mode))
     :config (setq flyspell-issue-message-flag nil)
     :diminish flyspell-mode
     :delight))
@@ -35,11 +35,11 @@
   (use-package ivy
     :init (ivy-mode 1)
     (setq ivy-use-virtual-buffers t
-	  enable-recursive-minibuffers t
-	  ivy-use-selectable-prompt t)
+          enable-recursive-minibuffers t
+          ivy-use-selectable-prompt t)
     :bind (:map ivy-minibuffer-map
-		(("C-j" . 'ivy-immediate-done)
-		 ("RET" . 'ivy-alt-done)))
+                (("C-j" . 'ivy-immediate-done)
+                 ("RET" . 'ivy-alt-done)))
     :diminish ivy-mode))
 
 (when (memq 'swiper packages-to-configure)
@@ -50,21 +50,19 @@
   (use-package counsel
     :init (counsel-mode 1)
     :bind (("<f1> l" . counsel-find-library)
-	   ("<f2> i" . counsel-info-lookup-symbol)
-	   ("<f2> u" . counsel-unicode-char)
-	   ("C-c g" . 'counsel-git)
-	   ("C-c j" . 'counsel-git-grep)
-	   ("C-c k" . 'counsel-ag)
-	   ("C-c l" . 'counsel-locate)
-	   :map ivy-minibuffer-map
-	   ("C-r" . 'counsel-minibuffer-history))
+           ("<f2> i" . counsel-info-lookup-symbol)
+           ("<f2> u" . counsel-unicode-char)
+           ("C-c g" . 'counsel-git)
+           ("C-c j" . 'counsel-git-grep)
+           ("C-c k" . 'counsel-ag)
+           ("C-c l" . 'counsel-locate)
+           :map ivy-minibuffer-map
+           ("C-r" . 'counsel-minibuffer-history))
     :diminish counsel-mode))
-
 (when (memq 'ivy-prescient packages-to-configure)
   (use-package ivy-prescient
     :init (ivy-prescient-mode 1)
-    :bind (("<f6>" . ivy-resume)
-	   )
+    :bind (("<f6>" . ivy-resume))
     :diminish ivy-prescient-mode)
   (prescient-persist-mode 1))
 
@@ -86,10 +84,10 @@
   (use-package ido
     :init (ido-mode t)
     (setq ido-enable-flex-matching t
-	  ido-everywhere t
-	  ido-create-new-buffer 'always
-	  ido-default-file-method 'selected-window
-	  ido-default-buffer-method 'selected-window)))
+          ido-everywhere t
+          ido-create-new-buffer 'always
+          ido-default-file-method 'selected-window
+          ido-default-buffer-method 'selected-window)))
 
 (when (memq 'move-text packages-to-configure)
   (use-package move-text
@@ -99,8 +97,8 @@
 (when (memq 'smex packages-to-configure)
   (use-package smex
     :bind (("M-x" . smex)
-	   ("M-X" . smex-major-mode-commands)
-	   ("C-c C-c M-x" . execute-extended-command))
+           ("M-X" . smex-major-mode-commands)
+           ("C-c C-c M-x" . execute-extended-command))
     :config (setq smex-history-length 20)))
 
 (when (memq 'yafolding packages-to-configure)
@@ -116,7 +114,7 @@
   (use-package json-mode
     :hook (prog-mode . highlight-indent-guides-mode)
     :config (setq highlight-indent-guides-method 'character
-		  highlight-indent-guides-responsive 'top)))
+                  highlight-indent-guides-responsive 'top)))
 
 (when (memq 'markdown-mode packages-to-configure)
   (use-package markdown-mode
@@ -132,8 +130,8 @@
 (when (memq 'graphviz-dot-mode packages-to-configure)
   (use-package graphviz-dot-mode
     :config (setq graphviz-dot-view-command "eog"
-		  graphviz-dot-view-edit-command t
-		  graphviz-dot-save-before-view t)))
+                  graphviz-dot-view-edit-command t
+                  graphviz-dot-save-before-view t)))
 ;;;;; ------------------------------------------------------
 
 (when (memq 'ggtags packages-to-configure)
@@ -146,15 +144,15 @@
   (use-package highlight-indent-guides
     :hook (prog-mode . highlight-indent-guides-mode )
     :config (setq highlight-indent-guides-method 'character
-		  highlight-indent-guides-responsive 'top)
+                  highlight-indent-guides-responsive 'top)
     :diminish highlight-indent-guides-mode))
 
 (when (memq 'diff-hl packages-to-configure)
   (use-package diff-hl
     :bind (("C-x v g" . diff-hl-diff-goto-hunk)
-	   ("C-x v r" . diff-hl-revert-hunk)
-	   ("C-c v p" . diff-hl-previous-hunk)
-	   ("C-c v n" . diff-hl-next-hunk))
+           ("C-x v r" . diff-hl-revert-hunk)
+           ("C-c v p" . diff-hl-previous-hunk)
+           ("C-c v n" . diff-hl-next-hunk))
     :demand
     :config
     (diff-hl-flydiff-mode)
@@ -164,16 +162,21 @@
   (use-package flylisp
     :hook (emacs-lisp-mode . flylisp-mode)))
 
+(when (memq 'call-graph packages-to-configure)
+  (use-package call-graph
+    :init (setq (cg-initial-max-depth 10)
+                (imenu-max-item-length "Unlimited"))))
+
 ;; Built-in
-(use-package whitespace
-  :bind (("C-c T w" . whitespace-mode))
-  :hook ((prog-mode . whitespace-mode)
-         (text-mode . whitespace-mode)
-         (conf-mode . whitespace-mode))
-  :config (setq whitespace-line-column nil)
-  (setq whitespace-style '(face indentation::space tabs trailing))
-  :diminish whitespace-mode
-  :delight)
+  (use-package whitespace
+    :bind (("C-c T w" . whitespace-mode))
+    :hook ((prog-mode . whitespace-mode)
+           (text-mode . whitespace-mode)
+           (conf-mode . whitespace-mode))
+    :config (setq whitespace-line-column nil)
+    (setq whitespace-style '(face indentation::space tabs trailing))
+    :diminish whitespace-mode
+    :delight)
 
 (when (memq 'yasnippet packages-to-configure)
   (use-package yasnippet
@@ -187,7 +190,7 @@
 (when (memq 'change-inner packages-to-configure)
   (use-package change-inner
     :bind (("M-i" . change-inner)
-	   ("M-o" . change-outer))))
+           ("M-o" . change-outer))))
 
 (when (memq 'aggressive-indent packages-to-configure)
   (use-package aggressive-indent
@@ -200,7 +203,7 @@
   (use-package flycheck
     :config
     :init (progn (global-flycheck-mode)
-		 (setq flycheck-emacs-lisp-load-path 'inherit))))
+                 (setq flycheck-emacs-lisp-load-path 'inherit))))
 
 (when (memq 'flycheck-checkbashisms packages-to-configure)
   (use-package flycheck-checkbashisms
@@ -218,8 +221,8 @@
     :command ("proselint" source-inplace)
     :error-patterns
     ((warning line-start (file-name) ":" line ":" column ": "
-	      (id (one-or-more (not (any " "))))
-	      (message) line-end))
+              (id (one-or-more (not (any " "))))
+              (message) line-end))
     :modes (text-mode markdown-mode gfm-mode)))
 
 (when (memq 'flycheck packages-to-configure)
@@ -269,10 +272,9 @@
 
 (when (memq 'mode-icons packages-to-configure)
   (use-package mode-icons
-    :after flycheck
-    :init (progn
-	    (mode-icons-mode)
-	    (add-hook 'flycheck-after-syntax-check-hook 'mode-icons-reset))))
+    :hook (flycheck-after-syntax-check . mode-icons-reset)))
+;;;    :init (mode-icons-mode)))
+;;;  (add-hook 'flycheck-after-syntax-check-hook 'mode-icons-reset)))
 ;;;---------------------------------------------------------
 
 ;;; Productivity
