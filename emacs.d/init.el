@@ -63,7 +63,7 @@
 
 (add-to-list 'package-archives
              '("MELPA" . "http://melpa.org/packages/") t)
-(package-initialize)
+;;(package-initialize)                       ; Not needed for emacs27
 (defun package--save-selected-packages (&rest opt) nil) ;Don't write the list
 ;;fetch the list of packages available if not already downloaded
 (unless package-archive-contents
@@ -76,6 +76,7 @@
     aggressive-indent
     all-the-icons-ivy
     ample-zen-theme
+    call-graph
     change-inner
     cheatsheet
     company
@@ -117,8 +118,7 @@
   "Packages to install from package manager.")
 
 (defvar packages-to-configure
-  (append '(
-	    counsel-tramp) packages-to-install)
+  (append '(git-commit) packages-to-install)
   "Include deps or manually cloned packages that needs to be configured.")
 
 ; install the missing packages
@@ -154,7 +154,7 @@
 (setq european-calendar-style 't              ; European style calendar
       calendar-week-start-day 1               ; Week starts monday
       ps-paper-type 'a4                       ; Specify printing format
-      ispell-dictionary "english")            ; Set ispell dictionary
+      ispell-dictionary "american")           ; Set ispell dictionary
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-language-environment 'utf-8)
@@ -182,7 +182,10 @@
  kill-read-only-ok t                  ; Copy text in read only buffers
  case-fold-search t                   ; Case insensitive search
  vc-follow-symlinks t                 ; Follow symlinks to repos
- gc-cons-threshold (* 10 1024 1024))  ; Reduce the frequency of garbage collection (default is 0.76MB, this sets it to 10MB)
+ gc-cons-threshold (* 10 1024 1024)   ; Reduce the frequency of garbage collection (default is 0.76MB, this sets it to 10MB)
+ tramp-default-method "ssh"           ; Faster than the default setting scp.
+ package-check-signature nil          ; So there seems to be a bug here
+ load-prefer-newer t)                 ; Don't load old bytecode
 (require 'log-edit)
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
@@ -195,6 +198,7 @@
 (global-set-key (kbd "M-<") 'hippie-expand)
 (global-set-key [f4] 'menu-bar-mode)
 (global-set-key (kbd "C-c c") 'compile)
+(global-set-key (kbd "C-c o") 'ff-find-other-file)
 (global-set-key (kbd "C-n") 'next-error)
 (global-set-key (kbd "C-p") 'previous-error)
 (global-set-key (kbd "C-<tab>") 'other-window)

@@ -164,28 +164,12 @@
 
 (when (memq 'call-graph packages-to-configure)
   (use-package call-graph
-    :init (setq (cg-initial-max-depth 10)
-                (imenu-max-item-length "Unlimited"))))
+    :commands call-graph
+    :init (setq cg-initial-max-depth 10)))
 
-;; Built-in
-  (use-package whitespace
-    :bind (("C-c T w" . whitespace-mode))
-    :hook ((prog-mode . whitespace-mode)
-           (text-mode . whitespace-mode)
-           (conf-mode . whitespace-mode))
-    :config (setq whitespace-line-column nil)
-    (setq whitespace-style '(face indentation::space tabs trailing))
-    :diminish whitespace-mode
-    :delight)
-
-(when (memq 'yasnippet packages-to-configure)
-  (use-package yasnippet
-    :init
-    (let ((orig (lookup-key global-map (kbd "TAB"))))
-      (yas-global-mode 1)
-      (define-key yas-minor-mode-map (kbd "TAB") orig)
-      (define-key yas-minor-mode-map [(tab)] orig))
-    :diminish yas-minor-mode))
+(use-package git-commit
+  :init
+  (global-git-commit-mode))
 
 (when (memq 'change-inner packages-to-configure)
   (use-package change-inner
@@ -196,6 +180,39 @@
   (use-package aggressive-indent
     :hook (prog-mode . aggressive-indent-mode)
     :diminish))
+
+(when (memq 'yasnippet packages-to-configure)
+  (use-package yasnippet
+    :init
+    (let ((orig (lookup-key global-map (kbd "TAB"))))
+      (yas-global-mode 1)
+      (define-key yas-minor-mode-map (kbd "TAB") orig)
+      (define-key yas-minor-mode-map [(tab)] orig))
+    :diminish yas-minor-mode))
+
+;; Built-in
+(use-package whitespace
+  :bind (("C-c T w" . whitespace-mode))
+  :hook ((prog-mode . whitespace-mode)
+         (text-mode . whitespace-mode)
+         (conf-mode . whitespace-mode))
+  :config (setq whitespace-line-column nil)
+  (setq whitespace-style '(face indentation::space tabs trailing))
+  :diminish whitespace-mode)
+
+(use-package which-func
+  :config
+  (setq mode-line-format (delete (assoc 'which-func-mode
+                                        mode-line-format) mode-line-format)
+        which-func-header-line-format '(which-func-mode
+                                        ("" which-func-format)))
+  (defadvice which-func-ff-hook (after header-line activate)
+    (when which-func-mode
+      (setq mode-line-format (delete (assoc 'which-func-mode
+                                            mode-line-format) mode-line-format)
+            header-line-format which-func-header-line-format)))
+
+  :init  (which-function-mode 1))
 
 ;;;;; Flycheck linters
 ;;;;; ------------------------------------------------------
@@ -268,13 +285,15 @@
 ;;; Visuals
 ;;;---------------------------------------------------------
 (when (memq 'ample-zen-theme packages-to-configure)
-  (use-package ample-zen-theme))
+  (use-package ample-zen-theme)
+  :config
+  (load-theme 'ample-zen t))
 
 (when (memq 'mode-icons packages-to-configure)
   (use-package mode-icons
-    :hook (flycheck-after-syntax-check . mode-icons-reset)))
-;;;    :init (mode-icons-mode)))
-;;;  (add-hook 'flycheck-after-syntax-check-hook 'mode-icons-reset)))
+    :hook (flycheck-after-syntax-check . mode-icons-reset)
+    :init (mode-icons-mode)
+    (add-hook 'flycheck-after-syntax-check-hook 'mode-icons-reset)))
 ;;;---------------------------------------------------------
 
 ;;; Productivity
