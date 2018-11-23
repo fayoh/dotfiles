@@ -3,3 +3,5 @@
 
 #Debug cable
 alias debugcable="sudo ~/bin/sermon -f /dev/ttyUSB0"
+# Do I ever run xcam-scan other than eth0?
+alias camscan="xcam-scan eth0"
