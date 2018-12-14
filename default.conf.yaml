@@ -25,6 +25,3 @@
     ~/.zshrc.d/:
         glob: true
         path: zshrc.d/*
-
-- shell:
-  - [git submodule update --init --recursive, Installing/updating submodules]
