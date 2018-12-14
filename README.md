@@ -15,6 +15,8 @@ packages. Thereafter, it will use dotbot to parse first
 For example, `./install home` would first run the settings in
 `default.conf.yaml` and then `home.conf.yaml`
 
+This only installs the symlinks from the dotfiles repo.
+
 ## Organisation
 The base directory contains the basics, stuff I want no matter what
 environment I am in.
@@ -25,8 +27,7 @@ specific setting. Think work/home/laptop.
 ### zshrc
 To improve readability of my zshrc and simplify modifications per
 setting I have created a `conf.d` like directory (`zshrc.d`) and all the
-regular `.zshrc` file does is to load any zsh file it finds in that
-directory.
+regular `.zshrc` file does is to load any zsh file it finds in that directory.
 
 ### emacs
 The `emacs.d` directory is linked in from the default configuration
@@ -51,22 +52,9 @@ sudo apt-get install $(cat packages.debian|grep -v '^#')
 ```
 
 
-To install all python modules via pip, see the packages.python file.
-
-``` shell
-pip install -r packages.python
-```
-
-
 ### Workarounds
 Qtodotxt2 does not work out of the box for me, OpenGL is not imported as it should. Add a line to `app.py`
 
 ``` python
 from OpenGl import GL
 ```
-
-## Manual installs
-Software I like to have but is not available in the package managers I
-usually use.
-
-* lazygit https://github.com/jesseduffield/lazygit
