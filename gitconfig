@@ -29,7 +29,7 @@
         unpublish = "!git push origin :$(git rev-parse --abbrev-ref HEAD)"
         s = status -sb
         amend = commit --amend
-        ammend = amend #misspelling ...
+	ammend = commit --amend #misspelling ...
         unstage = reset HEAD
         ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
