@@ -1,8 +1,6 @@
 global
+exuberant-ctags
 python3
-# qtodotxt
-python3-pyqt5
-python3-pyqt5.qtquick
 qml-module-qtquick-controls
 qml-module-qtquick-dialogs
 qml-module-qt-labs-settings

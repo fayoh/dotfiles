@@ -25,3 +25,10 @@
     ~/.zshrc.d/:
         glob: true
         path: zshrc.d/*
+
+- pip:
+    file: packages.python
+    binary: pip3
+    user: true
+    stdout: false
+    stderr: true

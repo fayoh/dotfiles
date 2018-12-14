@@ -9,4 +9,3 @@ pylint
 pyserial
 qtodotxt2
 requests
-requests

@@ -21,3 +21,10 @@
     ~/.zshrc.d/:
         glob: true
         path: site-specific/axis/zshrc.d/*
+
+- pip:
+    file: site-specific/axis/packages.python
+    binary: pip3
+    user: true
+    stdout: false
+    stderr: true
