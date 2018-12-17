@@ -63,7 +63,7 @@
 
 (add-to-list 'package-archives
              '("MELPA" . "http://melpa.org/packages/") t)
-;;(package-initialize)                       ; Not needed for emacs27
+(package-initialize)                       ; Not needed for emacs27
 (defun package--save-selected-packages (&rest opt) nil) ;Don't write the list
 ;;fetch the list of packages available if not already downloaded
 (unless package-archive-contents
@@ -98,6 +98,7 @@
     flyspell
     flyspell-popup
     ggtags
+    git-commit
     graphviz-dot-mode
     highlight-indent-guides
     ivy
