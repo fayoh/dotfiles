@@ -3,11 +3,12 @@
 	email = danielfb@axis.com
 [core]
 	attributesfile = /usr/share/atools/gitattributes
+	hooksPath = /usr/share/ahooks/hooks
 [alias]
 	push-pre-branch = "!f() { b=$(sed -nre \"s#ref: refs/heads/(pre-)?(master$|special/|rel/|int/|dev/|topic/|fix/)#\\1\\2#p\" .git/HEAD 2>/dev/null) && [ \"$b\" ] && git push \"$@\" origin $b:pre-${b#pre-} || echo \"Not currently on a valid branch!\" >&2; }; f"
 	getreview = "!f() { git fetch origin $@ && git checkout FETCH_HEAD;}; f"
 [axis "hooks"]
-	directory = /usr/share/ahooks/hooks.d
+	directory = /usr/share/ahooks/hooks.d/
 	workingdirHooks = true
 [http]
 	proxy = http://proxycluster.se.axis.com:3128
