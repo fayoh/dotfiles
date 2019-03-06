@@ -1,62 +1,20 @@
 [user]
         name = Daniel Fredrik Bengtsson
-        email = danielfb@axis.com
+	email = danielfb@axis.com
 [core]
-        attributesfile = /usr/share/atools/gitattributes
-	#gitproxy = /home/danielfb/bin/gitproxy.sh
+	attributesfile = /usr/share/atools/gitattributes
 [alias]
-        push-pre-branch = "!f() { b=$(sed -nre \"s#ref: refs/heads/(pre-)?(master$|special/|rel/|int/|dev/|topic/|fix/)#\\1\\2#p\" .git/HEAD 2>/dev/null) && [ \"$b\" ] && git push \"$@\" origin $b:pre-${b#pre-} || echo \"Not currently on a valid branch!\" >&2; }; f"
-        getreview = "!f() { git fetch origin $@ && git checkout FETCH_HEAD;}; f"
-        changes = log --oneline --decorate
-        aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
-        root = rev-parse --show-toplevel
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-        # add by patch - looks at each change, and asks if we want to put it in the repo.
-        ap = a dd --patch
-        diff-staged = diff --cached
-        lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
-        rebase-branch = !"git rebase -i `git merge-base master HEAD`"
-        # Assume: from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
-        # Sometimes we want to change a file in a repo, but never check in your edits.
-        # We can't use .gitignore because the file is tracked. We use update-index.
-        #
-        # Suppose we want to edit passwords.txt and for god's sake never check it in:
-        #
-        #     $ git status
-        #     modified passwords.txt
-        #     modified foo.txt
-        #
-        #     $ git assume passwords.txt
-        #     $ git status
-        #     modified foo.txt
-        #
-        #     $ git assumed
-        #     passwords.txt
-        #
-        #     $ git unassume passwords.txt
-        #     $ git status
-        #     modified passwords.txt
-        #     modified foo.txt
-        #
-        assume   = update-index --assume-unchanged
-        unassume = update-index --no-assume-unchanged
-        assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
-        # Delete a branch name, then create the same branch name based on master 
-        # useful if you have, for example, a development branch and master branch
-        # and they go out of sync, and you want to nuke the development branch.
-        #
-        # Calls the `publish` and `unpublish` aliases.
-        #
-        reincarnate = !"f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+	push-pre-branch = "!f() { b=$(sed -nre \"s#ref: refs/heads/(pre-)?(master$|special/|rel/|int/|dev/|topic/|fix/)#\\1\\2#p\" .git/HEAD 2>/dev/null) && [ \"$b\" ] && git push \"$@\" origin $b:pre-${b#pre-} || echo \"Not currently on a valid branch!\" >&2; }; f"
+	getreview = "!f() { git fetch origin $@ && git checkout FETCH_HEAD;}; f"
 [axis "hooks"]
-        directory = /usr/share/ahooks/hooks.d
-        workingdirHooks = true
+	directory = /usr/share/ahooks/hooks.d
+	workingdirHooks = true
 [http]
-        proxy = http://proxycluster.se.axis.com:3128
+	proxy = http://proxycluster.se.axis.com:3128
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.yoctoproject.org/poky"]
-     insteadOf = git://gitreposync.se.axis.com/git_yoctoproject_org_poky
+	insteadOf = git://gitreposync.se.axis.com/git_yoctoproject_org_poky
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.openembedded.org/meta-openembedded"]
-     insteadOf = git://gitreposync.se.axis.com/git_openembedded_org_meta_openembedded
+	insteadOf = git://gitreposync.se.axis.com/git_openembedded_org_meta_openembedded
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.yoctoproject.org/meta-gplv2"]
 	insteadOf = git://gitreposync.se.axis.com/git_yoctoproject_org_meta_gplv2
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux"]
