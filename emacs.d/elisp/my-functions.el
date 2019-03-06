@@ -8,9 +8,10 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
 ;; Find todo items in directory. Defaults to current directory
-(defun balle-grep-todos-in-dir (dir &optional not-recursive)
+(defun fayoh/grep-todos-in-dir (dir &optional not-recursive)
   "Grep recursively for TODO comments in the given directory (DIR).
 NOT-RECURSIVE do not enter subdirectories"
+  ;;TODO: format the result nicely
   (interactive "Ddirectory:")
   (let ((recur "-r"))
     (if not-recursive
@@ -21,7 +22,7 @@ NOT-RECURSIVE do not enter subdirectories"
   (enlarge-window 7)
   )
 
-(defmacro measure-time (&rest body)
+(defmacro fayoh/measure-time (&rest body)
   "Measure and return the running time of the code block BODY."
   (declare (indent defun))
   (let ((start (make-symbol "start")))
@@ -45,7 +46,7 @@ NOT-RECURSIVE do not enter subdirectories"
               (concat "Saved as script: " buffer-file-name)))))
 
 
-(defun package-list-unaccounted-packages ()
+(defun fayoh/package-list-unaccounted-packages ()
   "Like `package-list-packages', but show only the packages that.
 are installed and are not in `packages-to-install'.  Useful for
 cleaning out unwanted packages."
@@ -55,6 +56,15 @@ cleaning out unwanted packages."
 				   (not (package-built-in-p x))
 				   (package-installed-p x)))
 		  (mapcar 'car package-archive-contents))))
+
+(defun fayoh/current-minor-modes ()
+  "Return the list of minor modes enabled in the current buffer."
+  (interactive)
+  (delq nil
+	(mapcar (lambda (mode)
+		  (if (and (boundp mode) (symbol-value mode))
+		      mode))
+		minor-mode-list)))
 
 (provide 'my-functions)
 ;;; my-functions.el ends here
