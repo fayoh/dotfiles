@@ -54,9 +54,9 @@
 [http]
         proxy = http://proxycluster.se.axis.com:3128
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.yoctoproject.org/poky"]
-	insteadOf = git://gitreposync.se.axis.com/git_yoctoproject_org_poky
+     insteadOf = git://gitreposync.se.axis.com/git_yoctoproject_org_poky
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.openembedded.org/meta-openembedded"]
-	insteadOf = git://gitreposync.se.axis.com/git_openembedded_org_meta_openembedded
+     insteadOf = git://gitreposync.se.axis.com/git_openembedded_org_meta_openembedded
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.yoctoproject.org/meta-gplv2"]
 	insteadOf = git://gitreposync.se.axis.com/git_yoctoproject_org_meta_gplv2
 [url "ssh://gittools.se.axis.com:29418/mirrors/git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux"]

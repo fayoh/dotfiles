@@ -10,6 +10,8 @@
         whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
         excludesfile = ~/.gitignore_global
         editor = emacsclient -t --alternate-editor=\"\"
+	attributesfile = /usr/share/atools/gitattributes
+	gitproxy = axis-git-proxy
 [push]
         default = tracking
 [rebase]
@@ -47,3 +49,6 @@
         path = ~/.gitconfig_local
 [pull]
         rebase = true
+[user]
+	name = Daniel Bengtsson
+	email = daniel.f.bengtsson@gmail.com
