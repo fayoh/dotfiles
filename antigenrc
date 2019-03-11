@@ -7,8 +7,8 @@ antigen bundle smallhadroncollider/antigen-git-rebase
 # Help me with apt!
 antigen bundle debian
 
-# Navigate directories
-antigen bundle dirhistory
+# Add forgotten sudo to last command
+antigen bundle sudo
 
 # Autoclose delimiters like " and {
 antigen bundle hlissner/zsh-autopair
@@ -42,6 +42,10 @@ antigen theme maniat1k/birame
 
 # Colors for your cat!
 antigen bundle colorize
+
+# Directory bookmarks
+antigen bundle jocelynmallon/zshmarks
+export BOOKMARKS_FILE="$HOME/.config/zshmarks/bookmarks"
 
 antigen apply
 
