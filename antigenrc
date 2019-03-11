@@ -26,7 +26,7 @@ antigen bundle alexrochas/zsh-extract
 antigen bundle zsh-users/zaw
 
 # Remind me that I made aliases
-antigen bundle "MichaelAquilina/zsh-you-should-use"
+antigen bundle molovo/tipz
 
 # Make simple calculations without starting bc or other
 antigen bundle arzzen/calc.plugin.zsh
