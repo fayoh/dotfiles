@@ -132,8 +132,14 @@
     :config (setq graphviz-dot-view-command "eog"
                   graphviz-dot-view-edit-command t
                   graphviz-dot-save-before-view t)))
-;;;;; ------------------------------------------------------
 
+(when (memq 'irony packages-to-configure)
+  (use-package irony
+    :hook ((c-mode . irony-mode)
+	   (c++-mode . irony-mode)
+	   (irony-mode . irony-cdb-autosetup-compile-options))))
+
+;;;;; ------------------------------------------------------
 (when (memq 'ggtags packages-to-configure)
   (use-package ggtags
     :config (setq ggtags-mode-line-project-name nil)
@@ -178,7 +184,12 @@
 
 (when (memq 'aggressive-indent packages-to-configure)
   (use-package aggressive-indent
-    :hook (prog-mode . aggressive-indent-mode)
+    :config
+    (add-to-list
+     'aggressive-indent-dont-indent-if
+     '(and (derived-mode-p 'c++-mode)
+	   (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+			       (thing-at-point 'line)))))
     :diminish))
 
 (when (memq 'yasnippet packages-to-configure)
@@ -189,6 +200,37 @@
       (define-key yas-minor-mode-map (kbd "TAB") orig)
       (define-key yas-minor-mode-map [(tab)] orig))
     :diminish yas-minor-mode))
+
+(when (memq 'rtags packages-to-configure)
+  (use-package rtags
+    :bind ("M-." . rtags-find-symbol-at-point)
+    :config (setq rtags-path "/mnt/storage/src/rtags/bin")))
+
+
+;; LSPmode and CCLS server
+(when (memq 'ccls packages-to-configure)
+  (use-package ccls))
+
+(when (memq 'lsp-mode packages-to-configure)
+  (use-package lsp-mode
+    :init (setq lsp-prefer-flymake nil)
+    :hook (((c-mode c++-mode python-mode) .
+	    (lambda () (require 'ccls) (lsp)))
+	   (python-mode . lsp))
+    :commands lsp))
+
+(when (memq 'lsp-ui packages-to-configure)
+  (use-package lsp-ui
+    :init (setq lsp-ui-doc-header t
+		lsp-ui-doc-include-signature t
+		lsp-ui-doc-use-webkit nil
+		lsp-ui-sideline-delay 1)
+    :commands lsp-ui-mode))
+
+(when (memq 'company-lsp packages-to-configure)
+  (use-package company-lsp
+    :commands company-lsp))
+
 
 ;; Built-in
 (use-package whitespace
@@ -213,6 +255,7 @@
             header-line-format which-func-header-line-format)))
 
   :init  (which-function-mode 1))
+
 
 ;;;;; Flycheck linters
 ;;;;; ------------------------------------------------------
@@ -245,10 +288,25 @@
 (when (memq 'flycheck packages-to-configure)
   (add-to-list 'flycheck-checkers 'proselint))
 
-;; TODO: Why does this not get triggered?
 (when (memq 'flycheck-flawfinder packages-to-configure)
-  :init (flycheck-flawfinder-setup)
-  (flycheck-add-next-checker 'c/c++-gcc '(warning . flawfinder)))
+  (use-package flycheck-flawfinder
+    :after flycheck
+    :config (flycheck-flawfinder-setup)
+    (flycheck-add-next-checker 'c/c++-gcc '(warning . flawfinder))))
+
+(when (memq 'flycheck-ycmd packages-to-configure)
+  (use-package flycheck-ycmd
+    :after flycheck
+    :config
+    (flycheck-ycmd-setup)))
+
+(when (memq 'flycheck-rtags packages-to-configure)
+  (use-package flycheck-rtags))
+
+(when (memq 'flycheck-irony packages-to-configure)
+  (use-package flycheck-irony
+    :after flycheck
+    :hook (flycheck-mode . flycheck-irony-setup)))
 ;;;;; ------------------------------------------------------
 
 ;;;;; Company code completion and backends
@@ -264,6 +322,11 @@
     :after company
     :init (add-to-list 'company-backends 'company-jedi)))
 
+(when (memq 'company-rtags packages-to-configure)
+  (use-package company-rtags
+    :after company
+    :init (add-to-list 'company-backends 'company-rtags)))
+
 (when (memq 'company-c-headers packages-to-configure)
   (use-package company-c-headers
     :after company
@@ -274,22 +337,35 @@
     :after company
     :init (add-to-list 'company-backends 'company-shell)))
 
+(when (memq 'company-ycmd packages-to-configure)
+  (use-package company-shell
+    :after company
+    :init (company-ycmd-setup)))
+
 (when (memq 'company-quickhelp packages-to-configure)
   (use-package company-quickhelp
-    :ensure t
     :after company
     :init (company-quickhelp-mode)))
+
+(when (memq 'company-irony packages-to-configure)
+  (use-package company-irony
+    :after company
+    :init (add-to-list 'company-backends 'company-irony)))
+
 ;;;;; ------------------------------------------------------
 ;;;---------------------------------------------------------
 
 ;;; Visuals
+
+;;; Do not load when starting server. But for some reason it works to
+;;; load them after startup.
 ;;;---------------------------------------------------------
-(when (memq 'ample-zen-theme packages-to-configure)
+(when (and (memq 'ample-zen-theme packages-to-configure) (not (daemonp)))
   (use-package ample-zen-theme)
   :config
   (load-theme 'ample-zen t))
 
-(when (memq 'mode-icons packages-to-configure)
+(when (and (memq 'mode-icons packages-to-configure) (not (daemonp)))
   (use-package mode-icons
     :hook (flycheck-after-syntax-check . mode-icons-reset)
     :init (mode-icons-mode)
@@ -306,7 +382,7 @@
 (when (memq 'cheatsheet packages-to-configure)
   (use-package cheatsheet
     :bind ("s-c" . cheatsheet-show)
-    :init (load "my-cheatsheet")))
+    :init (load "my-cheatsheet" t)))
 
 (when (memq 'projectile packages-to-configure)
   (use-package projectile
