@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
@@ -47,8 +48,12 @@ antigen bundle colorize
 antigen bundle jocelynmallon/zshmarks
 export BOOKMARKS_FILE="$HOME/.config/zshmarks/bookmarks"
 
+# Fish like autosuggestions from history
+antigen bundle zsh-users/zsh-autosuggestions
+
 antigen apply
 
+bindkey '^ ' autosuggest-accept
 bindkey '^R' zaw-history
 bindkey '^L' zaw-locate
 
