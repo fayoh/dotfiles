@@ -91,6 +91,7 @@
     move-text
     projectile
     swiper
+    visual-regexp-steroids
     whitespace
     yafolding
     yasnippet

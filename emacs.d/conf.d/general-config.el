@@ -104,6 +104,14 @@
 (when (memq 'yafolding packages-to-configure)
   (use-package yafolding
     :hook (prog-mode . yafolding-mode)))
+
+(when (memq 'visual-regexp-steroids packages-to-configure)
+  (use-package visual-regexp-steroids
+    :bind (("C-c r" . vr/replace)
+	   ("C-c q" . vr/query-replace)
+	   ("C-c s" . vr/isearch-forward))))
+;;;---------------------------------------------------------
+
 ;;;---------------------------------------------------------
 
 ;;; Code editing modes and helper functions

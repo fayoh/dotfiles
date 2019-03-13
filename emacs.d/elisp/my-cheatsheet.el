@@ -42,7 +42,10 @@
 		      '(:key "s-t" :description "Look up word on dictcc")
 		      '(:key "s-:" :description "Manually initiate autocomplete")
 		      '(:key "f2 u" :description "Insert unicode character")
-		      '(:key "f4" :description "Toggle menu bar"))
+		      '(:key "f4" :description "Toggle menu bar")
+		      '(:key "C-c q" :description "Visual regexp query replace")
+		      '(:key "C-c r" :description "Visual regexp replace")
+		      '(:key "C-c s" :description "Visual regexp search"))
 
 (cheatsheet-add-group 'Prog-mode
                       '(:key "C-c c" :description "Compile")
