@@ -93,6 +93,7 @@
     projectile
     restclient
     swiper
+    toml-mode
     visual-regexp-steroids
     whitespace
     yafolding

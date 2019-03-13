@@ -118,6 +118,10 @@
 ;;;---------------------------------------------------------
 ;;;;; Major modes
 ;;;;; ------------------------------------------------------
+(when (memq 'toml-mode packages-to-configure)
+  (use-package toml-mode
+    :diminish toml-mode))
+
 (when (memq 'json-mode packages-to-configure)
   (use-package json-mode
     :hook (prog-mode . highlight-indent-guides-mode)
@@ -146,6 +150,7 @@
     :hook ((c-mode . irony-mode)
 	   (c++-mode . irony-mode)
 	   (irony-mode . irony-cdb-autosetup-compile-options))))
+
 
 ;;;;; ------------------------------------------------------
 (when (memq 'ggtags packages-to-configure)
@@ -402,15 +407,11 @@
     :config
     (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-    (projectile-mode +1)
     :diminish projectile-mode))
 
 (when (memq 'counsel-projectile packages-to-configure)
   (use-package counsel-projectile
-    :config
-    ;; This will turn on projectile-mode again, but keep it in
-    ;; projectile if this package is not installed
-    (counsel-projectile-mode +1)))
+    :init (counsel-projectile-mode 1)))
 ;;;---------------------------------------------------------
 
 
