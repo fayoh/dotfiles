@@ -226,8 +226,19 @@
 
 
 (cheatsheet-add-group 'Graphviz-dot-mode
-                      '(:key "C-c p" :description "Preview image")
+		      '(:key "C-c p" :description "Preview image")
 		      '(:key "C-c v" :description "View in external viewer"))
+
+
+
+(cheatsheet-add-group 'Rest-client
+		      '(:key "C-c C-c" :description "Send query and pretty print the response.")
+		      '(:key "C-c C-r" :description "Send query and print raw response.")
+		      '(:key "C-c C-v" :description "Send query and pretty print the response. Do not switch window focus.")
+		      '(:key "C-c C-n" :description "Jump to next query")
+		      '(:key "C-c C-p" :description "Jump to previous query")
+		      '(:key "C-c C-." :description "Mark query under cursor")
+		      '(:key "C-c C-u" :description "Copy query under cursor as curl command."))
 
 (provide 'my-cheatsheet)
 ;;; my-cheatsheet ends here

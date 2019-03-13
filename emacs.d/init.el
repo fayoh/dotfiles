@@ -63,6 +63,7 @@
     company-lsp
     company-prescient
     company-quickhelp
+    company-restclient
     company-shell
     counsel
     counsel-projectile
@@ -90,6 +91,7 @@
     mode-icons ; No workie when starting server
     move-text
     projectile
+    restclient
     swiper
     visual-regexp-steroids
     whitespace

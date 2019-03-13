@@ -360,6 +360,11 @@
     :after company
     :init (add-to-list 'company-backends 'company-irony)))
 
+(when (memq 'company-restclient packages-to-configure)
+  (use-package company-restclient
+    :after company
+    :init (add-to-list 'company-backends 'company-restclient)))
+
 ;;;;; ------------------------------------------------------
 ;;;---------------------------------------------------------
 
@@ -406,6 +411,14 @@
     ;; This will turn on projectile-mode again, but keep it in
     ;; projectile if this package is not installed
     (counsel-projectile-mode +1)))
+;;;---------------------------------------------------------
+
+
+;;; Network
+;;;---------------------------------------------------------
+(when (memq 'restclient packages-to-configure)
+  (use-package restclient))
+
 ;;;---------------------------------------------------------
 
 (provide 'general-config)
