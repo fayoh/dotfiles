@@ -1,28 +1,6 @@
 ;;;;;; init.el --- Daniel Bengtsson's init.el File For GNU Emacs
 
-;; Copyright (C) 2018  Daniel Bengtsson
-
-;; Author: Andrew Kensler
-;; Version: 20180825
-;; Keywords: local, convenience
-
-;; Permission is hereby granted, free of charge, to any person obtaining a
-;; copy of this software and associated documentation files (the "Software"),
-;; to deal in the Software without restriction, including without limitation
-;; the rights to use, copy, modify, merge, publish, distribute, sublicense,
-;; and/or sell copies of the Software, and to permit persons to whom the
-;; Software is furnished to do so, subject to the following conditions:
-;;
-;; The above copyright notice and this permission notice shall be included
-;; in all copies or substantial portions of the Software.
-;;
-;; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-;; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-;; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-;; THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-;; OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-;; ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-;; OTHER DEALINGS IN THE SOFTWARE.
+;; Copyright (C) 2018-2019  Daniel Bengtsson
 
 ;;; Commentary:
 
@@ -53,9 +31,9 @@
 ;; ===========================================================================
 ;; General settings and internal packages.
 ;; ===========================================================================
-(add-to-list 'load-path "~/.emacs.d/elisp/")
-(load "my-functions") ; Load convenience functions used later in the init
-(load "early-init" t) ; Load early-init if it exists
+(add-to-list 'load-path '"~/.emacs.d/elisp/")
+(load "my-functions" t) ; Load convenience functions used later in the init
+(load "early-init") ; Load early-init if it exists
 
 ;; Package setup
 ;; -------------
@@ -73,15 +51,16 @@
 (defvar packages-to-install
   '(
     use-package
-    aggressive-indent
     all-the-icons-ivy
-    ample-zen-theme
+    ample-zen-theme  ;; No workie when starting server
     call-graph
+    ccls
     change-inner
     cheatsheet
     company
     company-c-headers
     company-jedi
+    company-lsp
     company-prescient
     company-quickhelp
     company-shell
@@ -97,7 +76,6 @@
     flylisp
     flyspell
     flyspell-popup
-    ggtags
     git-commit
     graphviz-dot-mode
     highlight-indent-guides
@@ -106,8 +84,10 @@
     ivy-rich
     json-mode
     load-dir
+    lsp-mode
+    lsp-ui
     markdown-mode
-    mode-icons
+    mode-icons ; No workie when starting server
     move-text
     projectile
     swiper
@@ -196,15 +176,15 @@
 ;; Keyboard bindings
 ;; -----------------
 ;; See conf.d/*-config.el for package specific bindings
-(global-set-key (kbd "M-<") 'hippie-expand)
-(global-set-key [f4] 'menu-bar-mode)
-(global-set-key (kbd "C-c c") 'compile)
-(global-set-key (kbd "C-c o") 'ff-find-other-file)
-(global-set-key (kbd "C-n") 'next-error)
-(global-set-key (kbd "C-p") 'previous-error)
-(global-set-key (kbd "C-<tab>") 'other-window)
-(global-set-key (kbd "C-c t") 'fayoh/grep-todos-in-dir)
-(global-set-key (kbd "s-SPC") 'just-one-space)
+(bind-keys ("<f4>" . menu-bar-mode)
+	   ("M-<" . hippie-expand)
+	   ("C-c c" . compile)
+	   ("C-c o" . ff-find-other-file)
+	   ("C-n" . next-error)
+	   ("C-p" . previous-error)
+	   ("<C-tab>" . other-window)
+	   ("C-c t" . fayoh/grep-todos-in-dir)
+	   ("s-SPC" . just-one-space))
 
 ;; Load package configs
 ;; --------------------
