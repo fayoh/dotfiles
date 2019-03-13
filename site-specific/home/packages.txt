@@ -6,3 +6,13 @@ MCU dev
 * SDCC http://sdcc.sourceforge.net/
 * OpenOCD http://openocd.org/
 * stm8flash https://github.com/vdudouyt/stm8flash
+
+Electronics
+-----------
+* KiCad
+* sigrok-cli
+
+IoT
+---
+* Mosquitto
+* Mosquitto-clients
