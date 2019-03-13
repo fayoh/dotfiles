@@ -118,6 +118,9 @@
 ;;;---------------------------------------------------------
 ;;;;; Major modes
 ;;;;; ------------------------------------------------------
+(when (memq 'dockerfile-mode packages-to-configure)
+  (use-package dockerfile-mode))
+
 (when (memq 'toml-mode packages-to-configure)
   (use-package toml-mode
     :diminish toml-mode))

@@ -70,6 +70,7 @@
     dictcc
     diff-hl
     diminish
+    dockerfile-mode
     flycheck
     flycheck-checkbashisms
     flycheck-flawfinder
@@ -171,6 +172,7 @@
  tramp-default-method "ssh"           ; Faster than the default setting scp.
  package-check-signature nil          ; So there seems to be a bug here
  load-prefer-newer t)                 ; Don't load old bytecode
+
 (require 'log-edit)
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
