@@ -11,7 +11,8 @@ Host 192.168.0.*
    UserKnownHostsFile /dev/null
    ForwardX11 no
 
-Host 172.27.65.*
+# DB-lab
+Host *.labnet.rnd.axis.com
    StrictHostKeyChecking no
    UserKnownHostsFile /dev/null
    ForwardX11 no
