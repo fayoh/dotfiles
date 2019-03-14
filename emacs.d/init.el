@@ -5,7 +5,7 @@
 ;;; Commentary:
 
 ;; This is my personal startup file for GNU Emacs.  It has only recently
-;; been tested on GNU Emacs 26.1, though it may run on other versions.
+;; been tested on GNU Emacs 27, though it may run on other versions.
 ;;
 ;; Set some basic Emacs settings and load further configuration files
 ;; for additional customisation.
@@ -41,9 +41,14 @@
 
 (add-to-list 'package-archives
              '("MELPA" . "http://melpa.org/packages/") t)
-(package-initialize)                       ; Not needed for emacs27
-(defun package--save-selected-packages (&rest opt) nil) ;Don't write the list
-;;fetch the list of packages available if not already downloaded
+(if (version< emacs-version "27")
+    (package-initialize))
+
+(defun package--save-selected-packages (&rest opt)
+       "Don't write the package list, ignore OPT."
+       nil)
+
+;;Fetch the list of packages available if not already downloaded."
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -173,7 +178,7 @@
  package-check-signature nil          ; So there seems to be a bug here
  load-prefer-newer t)                 ; Don't load old bytecode
 
-(require 'log-edit)
+(require 'log-edit)                   ; Why not in use-package?
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
 (setq custom-file (concat user-emacs-directory "custom.el"))
