@@ -258,20 +258,6 @@
   (setq whitespace-style '(face indentation::space tabs trailing))
   :diminish whitespace-mode)
 
-(use-package which-func
-  :config
-  (setq mode-line-format (delete (assoc 'which-func-mode
-                                        mode-line-format) mode-line-format)
-        which-func-header-line-format '(which-func-mode
-                                        ("" which-func-format)))
-  (defadvice which-func-ff-hook (after header-line activate)
-    (when which-func-mode
-      (setq mode-line-format (delete (assoc 'which-func-mode
-                                            mode-line-format) mode-line-format)
-            header-line-format which-func-header-line-format)))
-
-  :init  (which-function-mode 1))
-
 
 ;;;;; Flycheck linters
 ;;;;; ------------------------------------------------------
