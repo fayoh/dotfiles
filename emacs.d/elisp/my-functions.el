@@ -53,18 +53,18 @@ cleaning out unwanted packages."
   (interactive)
   (package-show-package-list
    (remove-if-not (lambda (x) (and (not (memq x packages-to-configure))
-				   (not (package-built-in-p x))
-				   (package-installed-p x)))
-		  (mapcar 'car package-archive-contents))))
+                                   (not (package-built-in-p x))
+                                   (package-installed-p x)))
+                  (mapcar 'car package-archive-contents))))
 
 (defun fayoh/current-minor-modes ()
   "Return the list of minor modes enabled in the current buffer."
   (interactive)
   (delq nil
-	(mapcar (lambda (mode)
-		  (if (and (boundp mode) (symbol-value mode))
-		      mode))
-		minor-mode-list)))
+        (mapcar (lambda (mode)
+                  (if (and (boundp mode) (symbol-value mode))
+                      mode))
+                minor-mode-list)))
 
 (provide 'my-functions)
 ;;; my-functions.el ends here
