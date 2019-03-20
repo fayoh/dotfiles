@@ -10,8 +10,6 @@
         whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
         excludesfile = ~/.gitignore_global
         editor = emacsclient -t --alternate-editor=\"\"
-	attributesfile = /usr/share/atools/gitattributes
-	gitproxy = axis-git-proxy
 [push]
         default = tracking
 [rebase]
@@ -31,70 +29,70 @@
         unpublish = "!git push origin :$(git rev-parse --abbrev-ref HEAD)"
         s = status -sb
         amend = commit --amend
-	ammend = commit --amend #misspelling ...
+        ammend = commit --amend #misspelling ...
         unstage = reset HEAD
         ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
         nevermind = !git reset --hard HEAD && git clean -d -f
-	discard = checkout --
-	uncommit = reset --mixed HEAD~
-	new-branch = checkout -b
-		changes = log --oneline --decorate
-	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
-	root = rev-parse --show-toplevel
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	# add by patch - looks at each change, and asks if we want to put it in the repo.
-	ap = a dd --patch
-	diff-staged = diff --cached
-	lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
-	rebase-branch = !"git rebase -i `git merge-base master HEAD`"
-	# Assume: from
-	# http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
-	# Sometimes we want to change a file in a repo, but never
-	# check in your edits.  We can't use .gitignore because the
-	# file is tracked. We use update-index.
-	#
-	# Suppose we want to edit passwords.txt and for god's sake
-	# never check it in:
-	#
-	#     $ git status
-	#     modified passwords.txt
-	#     modified foo.txt
-	#
-	#     $ git assume passwords.txt
-	#     $ git status
-	#     modified foo.txt
-	#
-	#     $ git assumed
-	#     passwords.txt
-	#
-	#     $ git unassume passwords.txt
-	#     $ git status
-	#     modified passwords.txt
-	#     modified foo.txt
-	#
-	assume   = update-index --assume-unchanged
-	unassume = update-index --no-assume-unchanged
-	assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
-	# Delete a branch name, then create the same branch name based
-	# on master useful if you have, for example, a development
-	# branch and master branch and they go out of sync, and you
-	# want to nuke the development branch.
-	#
-	# Calls the `publish` and `unpublish` aliases.
-	#
-	reincarnate = !"f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+        discard = checkout --
+        uncommit = reset --mixed HEAD~
+        new-branch = checkout -b
+                changes = log --oneline --decorate
+        aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+        root = rev-parse --show-toplevel
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+        # add by patch - looks at each change, and asks if we want to put it in the repo.
+        ap = add --patch
+        diff-staged = diff --cached
+        lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
+        rebase-branch = !"git rebase -i `git merge-base master HEAD`"
+        # Assume: from
+        # http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+        # Sometimes we want to change a file in a repo, but never
+        # check in your edits.  We can't use .gitignore because the
+        # file is tracked. We use update-index.
+        #
+        # Suppose we want to edit passwords.txt and for god's sake
+        # never check it in:
+        #
+        #     $ git status
+        #     modified passwords.txt
+        #     modified foo.txt
+        #
+        #     $ git assume passwords.txt
+        #     $ git status
+        #     modified foo.txt
+        #
+        #     $ git assumed
+        #     passwords.txt
+        #
+        #     $ git unassume passwords.txt
+        #     $ git status
+        #     modified passwords.txt
+        #     modified foo.txt
+        #
+        assume   = update-index --assume-unchanged
+        unassume = update-index --no-assume-unchanged
+        assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
+        # Delete a branch name, then create the same branch name based
+        # on master useful if you have, for example, a development
+        # branch and master branch and they go out of sync, and you
+        # want to nuke the development branch.
+        #
+        # Calls the `publish` and `unpublish` aliases.
+        #
+        reincarnate = !"f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
 
 [apply]
-	whitespace = fix
+        whitespace = fix
 [credential]
-	helper = cache --timeout=3600
+        helper = cache --timeout=3600
 [github]
-	user = fayoh
+        user = fayoh
 [pull]
-	rebase = true
+        rebase = true
 [user]
-	name = Daniel Bengtsson
-	email = daniel.f.bengtsson@gmail.com
+        name = Daniel Bengtsson
+        email = daniel.f.bengtsson@gmail.com
 [include]
-	path = .gitconfig_local
+        path = .gitconfig_local
