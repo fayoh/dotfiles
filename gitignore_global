@@ -34,3 +34,6 @@
 ######################
 *.log
 *.sqlite
+
+# Cache directories
+.ccls-cache
