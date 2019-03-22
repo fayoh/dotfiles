@@ -215,7 +215,8 @@
       (yas-global-mode 1)
       (define-key yas-minor-mode-map (kbd "TAB") orig)
       (define-key yas-minor-mode-map [(tab)] orig))
-    :diminish yas-minor-mode))
+    :diminish yas-minor-mode)
+  (use-package yasnippet-snippets))
 
 (when (memq 'ivy-yasnippet packages-to-configure)
   (use-package ivy-yasnippet
