@@ -11,7 +11,9 @@
     ~/.antigenrc:
     ~/.emacs.d/init.el: 'emacs.d/init.el'
     ~/.emacs.d/custom.el: 'emacs.d/custom.el'
-    ~/.emacs.d/conf.d/general-config.el: 'emacs.d/conf.d/general-config.el'
+    ~/.emacs.d/conf.d/:
+      glob: true
+      path: emacs.d/conf.d/*
     ~/.emacs.d/elisp/my-functions.el: 'emacs.d/elisp/my-functions.el'
     ~/.emacs.d/elisp/my-cheatsheet.el: 'emacs.d/elisp/my-cheatsheet.el'
     ~/.gitconfig:
