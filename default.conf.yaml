@@ -3,7 +3,7 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.local/bin']
+- clean: ['~', '~/.local/bin', '~/.emacs.d', '~/zshrc.d', '~/.local/bin']
 
 - link:
     ~/.config/sakura/sakura.conf: 'sakura.conf'
