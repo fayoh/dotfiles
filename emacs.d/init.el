@@ -89,6 +89,7 @@
     ivy
     ivy-prescient
     ivy-rich
+    ivy-yasnippet
     json-mode
     load-dir
     lsp-mode
@@ -112,7 +113,8 @@
   (append '(git-commit) packages-to-install)
   "Include deps or manually cloned packages that needs to be configured.")
 
-; install the missing packages
+;; install the missing packages
+;; Oooor, we let use-package do this
 (dolist (package packages-to-install)
   (unless (package-installed-p package)
     (package-install package)))

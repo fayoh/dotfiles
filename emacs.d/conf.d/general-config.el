@@ -108,8 +108,8 @@
 (when (memq 'visual-regexp-steroids packages-to-configure)
   (use-package visual-regexp-steroids
     :bind (("C-c r" . vr/replace)
-	   ("C-c q" . vr/query-replace)
-	   ("C-c s" . vr/isearch-forward))))
+           ("C-c q" . vr/query-replace)
+           ("C-c s" . vr/isearch-forward))))
 ;;;---------------------------------------------------------
 
 ;;;---------------------------------------------------------
@@ -151,8 +151,8 @@
 (when (memq 'irony packages-to-configure)
   (use-package irony
     :hook ((c-mode . irony-mode)
-	   (c++-mode . irony-mode)
-	   (irony-mode . irony-cdb-autosetup-compile-options))))
+           (c++-mode . irony-mode)
+           (irony-mode . irony-cdb-autosetup-compile-options))))
 
 
 ;;;;; ------------------------------------------------------
@@ -204,8 +204,8 @@
     (add-to-list
      'aggressive-indent-dont-indent-if
      '(and (derived-mode-p 'c++-mode)
-	   (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-			       (thing-at-point 'line)))))
+           (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+                               (thing-at-point 'line)))))
     :diminish))
 
 (when (memq 'yasnippet packages-to-configure)
@@ -216,6 +216,11 @@
       (define-key yas-minor-mode-map (kbd "TAB") orig)
       (define-key yas-minor-mode-map [(tab)] orig))
     :diminish yas-minor-mode))
+
+(when (memq 'ivy-yasnippet packages-to-configure)
+  (use-package ivy-yasnippet
+    :bind ("<s-tab>" . ivy-yasnippet)))
+
 
 (when (memq 'rtags packages-to-configure)
   (use-package rtags
@@ -231,16 +236,16 @@
   (use-package lsp-mode
     :init (setq lsp-prefer-flymake nil)
     :hook (((c-mode c++-mode python-mode) .
-	    (lambda () (require 'ccls) (lsp)))
-	   (python-mode . lsp))
+            (lambda () (require 'ccls) (lsp)))
+           (python-mode . lsp))
     :commands lsp))
 
 (when (memq 'lsp-ui packages-to-configure)
   (use-package lsp-ui
     :init (setq lsp-ui-doc-header t
-		lsp-ui-doc-include-signature t
-		lsp-ui-doc-use-webkit nil
-		lsp-ui-sideline-delay 1)
+                lsp-ui-doc-include-signature t
+                lsp-ui-doc-use-webkit nil
+                lsp-ui-sideline-delay 1)
     :commands lsp-ui-mode))
 
 (when (memq 'company-lsp packages-to-configure)
