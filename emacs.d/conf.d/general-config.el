@@ -208,21 +208,6 @@
                                (thing-at-point 'line)))))
     :diminish))
 
-(when (memq 'yasnippet packages-to-configure)
-  (use-package yasnippet
-    :init
-    (let ((orig (lookup-key global-map (kbd "TAB"))))
-      (yas-global-mode 1)
-      (define-key yas-minor-mode-map (kbd "TAB") orig)
-      (define-key yas-minor-mode-map [(tab)] orig))
-    :diminish yas-minor-mode)
-  (use-package yasnippet-snippets))
-
-(when (memq 'ivy-yasnippet packages-to-configure)
-  (use-package ivy-yasnippet
-    :bind ("<s-tab>" . ivy-yasnippet)))
-
-
 (when (memq 'rtags packages-to-configure)
   (use-package rtags
     :bind ("M-." . rtags-find-symbol-at-point)

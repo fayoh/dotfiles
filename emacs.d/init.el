@@ -52,10 +52,9 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; List of packages to install
-(defvar packages-to-install
+;; List of packages to configure
+(defvar packages-to-configure
   '(
-    use-package
     all-the-icons-ivy
     ample-zen-theme  ;; No workie when starting server
     call-graph
@@ -89,7 +88,6 @@
     ivy
     ivy-prescient
     ivy-rich
-    ivy-yasnippet
     json-mode
     load-dir
     lsp-mode
@@ -105,19 +103,13 @@
     whitespace
     yafolding
     yasnippet
-    yasnippet-snippets
     )
   "Packages to install from package manager.")
 
-(defvar packages-to-configure
-  (append '(git-commit) packages-to-install)
-  "Include deps or manually cloned packages that needs to be configured.")
-
-;; install the missing packages
-;; Oooor, we let use-package do this
-(dolist (package packages-to-install)
-  (unless (package-installed-p package)
-    (package-install package)))
+;; Make sure use-package is installed. It will handle all further
+;; package installation and configuration.
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
 
 ;; Visuals
 ;; -------
@@ -127,6 +119,7 @@
 (scroll-bar-mode -1)
 (column-number-mode 1)
 (global-font-lock-mode t)
+;; TODO: these attributes are not read until after modeline is already set.
 (set-face-attribute 'mode-line nil :font "DejaVu Sans Mono-10")
 (set-face-attribute 'mode-line-inactive nil :font "DejaVu Sans Mono-10")
 
@@ -178,8 +171,8 @@
  gc-cons-threshold (* 10 1024 1024)   ; Reduce the frequency of garbage collection (default is 0.76MB, this sets it to 10MB)
  tramp-default-method "ssh"           ; Faster than the default setting scp.
  package-check-signature nil          ; So there seems to be a bug here
- load-prefer-newer t)                 ; Don't load old bytecode
-
+ load-prefer-newer t                  ; Don't load old bytecode
+ use-package-always-ensure t)         ; install packages autmagically
 (require 'log-edit)                   ; Why not in use-package?
 ;; Move custom configuration variables set by Emacs, to a separate file
 (require 'custom)
@@ -202,6 +195,7 @@
 ;; Load package configs
 ;; --------------------
 (require 'use-package)
+(setq use-package-compute-statistics t)
 (use-package load-dir
   :demand t)
 (setq load-dir-recursive t)

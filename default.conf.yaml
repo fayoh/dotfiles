@@ -5,6 +5,9 @@
 
 - clean: ['~', '~/.local/bin', '~/.emacs.d', '~/zshrc.d', '~/.local/bin']
 
+- shell:
+    - ['./clone.sh https://github.com/hlissner/emacs-snippets.git emacs.d/snippets/emacs-snippets', Get additional yasnippets]
+
 - link:
     ~/.config/sakura/sakura.conf: 'sakura.conf'
     ~/.dotfiles: ''
