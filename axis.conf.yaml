@@ -2,6 +2,8 @@
     link:
       create: true
       relink: true
+- clean: ['~/.ssh']
+
 - shell:
   - ['./clone.sh ssh://danielfb@gittools.se.axis.com:29418/users/danielfb/scripts site-specific/axis/repos/scripts', Get scripts repo]
   - ['./clone.sh ssh://danielfb@gittools.se.axis.com:29418/tools/oe-setup site-specific/axis/repos/oe-setup', Get oe-setup repo]
