@@ -14,20 +14,6 @@
     :config (setq dictcc-source-lang "en"
                   dictcc-destination-lang "sv")))
 
-(when (memq 'flyspell packages-to-configure)
-  (use-package flyspell
-    :hook ((text-mode . flyspell-mode)
-           (prog-mode . flyspell-prog-mode))
-    :config (setq flyspell-issue-message-flag nil)
-    :diminish flyspell-mode
-    :delight))
-
-(when (memq 'flyspell-popup packages-to-configure)
-  (use-package flyspell-popup
-    :after flyspell
-    :bind (("C-:" . flyspell-popup-correct))))
-;;;---------------------------------------------------------
-
 
 ;;; Emacs behaviour
 ;;;---------------------------------------------------------
