@@ -19,8 +19,6 @@
     ~/.local/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
     ~/.local/etc/gtags.conf: 'gtags.conf'
     ~/.pyenv: 'submodules/pyenv'
-    ~/.tmux/plugins/tpm: 'submodules/tpm'
-    ~/.tmux.conf:
     ~/.zshrc:
     ~/.zshrc.d/:
         glob: true
