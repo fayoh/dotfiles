@@ -9,6 +9,7 @@
 ;                      '(:key "" :description "")
 ;                      '(:key "" :description "")
 ;                      )
+(require 'cheatsheet)
 
 (cheatsheet-add-group 'Help
                       '(:key "f1 f" :description "Show documentation for function")
