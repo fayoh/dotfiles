@@ -4,5 +4,5 @@
 
 # Usage ./clone.sh repo-url destination
 if [ ! -d "$2" ]; then
-    git clone -q "$1" "$2"
+    git clone -q --depth 1 "$1" "$2"
 fi
