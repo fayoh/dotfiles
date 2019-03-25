@@ -96,6 +96,11 @@
     :bind (("C-c r" . vr/replace)
            ("C-c q" . vr/query-replace)
            ("C-c s" . vr/isearch-forward))))
+
+(when (memq 'paradox packages-to-configure)
+  (use-package paradox
+    :config (setq paradox-execute-asynchronously nil
+		  paradox-lines-per-entry 2)))
 ;;;---------------------------------------------------------
 
 ;;;---------------------------------------------------------
@@ -373,11 +378,17 @@
     :config
     (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-    :diminish projectile-mode))
+    :diminish projectile-mode)
+  (when (memq 'ivy packages-to-configure)
+    (setq projectile-completion-system 'ivy)))
 
-(when (memq 'counsel-projectile packages-to-configure)
+  (when (memq 'counsel-projectile packages-to-configure)
   (use-package counsel-projectile
     :init (counsel-projectile-mode 1)))
+
+(when (memq 'magit-todos packages-to-configure)
+  :config ((setq magit-todos-ignore-case t)
+	   (magit)))
 ;;;---------------------------------------------------------
 
 

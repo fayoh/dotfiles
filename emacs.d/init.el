@@ -95,6 +95,7 @@
     markdown-mode
     mode-icons ; No workie when starting server
     move-text
+    paradox
     projectile
     restclient
     swiper
