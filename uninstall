@@ -6,7 +6,7 @@ import yaml
 import os
 import sys
 
-configs=["default.conf.yaml"]
+configs = ["default.conf.yaml"]
 
 for i in sys.argv[1:]:
     configs.append("{0}.conf.yaml".format(i))
@@ -18,10 +18,9 @@ for config in configs:
     conf = yaml.load(stream)
 
     for section in conf:
-         if 'link' in section:
-             for target in section['link']:
-                 realpath = os.path.expanduser(target)
-                 if os.path.islink(realpath):
-                     print("Removing ", realpath)
-                     os.unlink(realpath)
-
+        if 'link' in section:
+            for target in section['link']:
+                realpath = os.path.expanduser(target)
+                if os.path.islink(realpath):
+                    print("Removing ", realpath)
+                    os.unlink(realpath)
