@@ -3,5 +3,7 @@ $HOME/dists/prodstub-integration|prodstub-integration
 /mnt/storage/src/other/home-iot/lightcontroller|lightcontroller
 $HOME/src/prodstub-db|prodstub-db
 $HOME/src/prodstub-db/qapt|qapt
-$HOME/src/dotfiles|dotfiles
 /n/axis_releases/oe|oe-releases
+/mnt/storage/src/dotfiles|dotfiles
+/n/slask/danielfb|slask
+/h/danielfb|h
