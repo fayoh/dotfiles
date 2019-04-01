@@ -382,13 +382,17 @@
   (when (memq 'ivy packages-to-configure)
     (setq projectile-completion-system 'ivy)))
 
-  (when (memq 'counsel-projectile packages-to-configure)
+(when (memq 'counsel-projectile packages-to-configure)
   (use-package counsel-projectile
     :init (counsel-projectile-mode 1)))
 
 (when (memq 'magit-todos packages-to-configure)
   :config ((setq magit-todos-ignore-case t)
 	   (magit)))
+
+(when (memq 'ripgrep packages-to-configure)
+  (use-package ripgrep))
+
 ;;;---------------------------------------------------------
 
 

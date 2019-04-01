@@ -98,6 +98,7 @@
     paradox
     projectile
     restclient
+    ripgrep
     swiper
     toml-mode
     visual-regexp-steroids
