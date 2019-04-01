@@ -44,12 +44,19 @@ antigen theme maniat1k/birame
 # Colors for your cat!
 antigen bundle colorize
 
+# Show a desktop notification after long running commands
+antigen bundle bgnotify
+
 # Directory bookmarks
 antigen bundle jocelynmallon/zshmarks
 export BOOKMARKS_FILE="$HOME/.config/zshmarks/bookmarks"
 
+
 # Fish like autosuggestions from history
 antigen bundle zsh-users/zsh-autosuggestions
+
+# Autocompletion for pip
+antigen bundle pip
 
 antigen apply
 
