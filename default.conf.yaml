@@ -3,27 +3,35 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.local/bin', '~/.emacs.d', '~/zshrc.d', '~/.local/bin']
+- clean: ['~', '~/.local/bin', '~/.emacs.d', '~/zshrc.d', '~/.local/bin',
+  '~/.config/todotxt/actions']
 
 - shell:
     - ['./clone.sh https://github.com/hlissner/emacs-snippets.git emacs.d/snippets/emacs-snippets', Get additional yasnippets]
+    - ['./clone.sh https://github.com/samuelsnyder/outline-todo.txt src/todotxt/outline', Get outline-todo for todotxt]
+    - ['./clone.sh https://github.com/karbassi/todotxt-birdseye src/todotxt/birdseye', Get birdseye for todotxt]
+    - ['./clone.sh https://github.com/markwu/todo-cli-plugins src/todotxt/view', Get view for todotxt]
 
 - link:
-    ~/.config/sakura/sakura.conf: 'sakura.conf'
+    ~/.config/sakura/sakura.conf: sakura.conf
+    ~/.config/todotxt/config: todotxt/config
+    ~/.config/todotxt/actions/:
+      glob: true
+      path: src/todotxt/*
     ~/.dotfiles: ''
     ~/.antigenrc:
-    ~/.emacs.d/init.el: 'emacs.d/init.el'
-    ~/.emacs.d/custom.el: 'emacs.d/custom.el'
+    ~/.emacs.d/init.el: emacs.d/init.el
+    ~/.emacs.d/custom.el: emacs.d/custom.el
     ~/.emacs.d/conf.d/:
       glob: true
       path: emacs.d/conf.d/*
-    ~/.emacs.d/elisp/my-functions.el: 'emacs.d/elisp/my-functions.el'
-    ~/.emacs.d/elisp/my-cheatsheet.el: 'emacs.d/elisp/my-cheatsheet.el'
+    ~/.emacs.d/elisp/my-functions.el: emacs.d/elisp/my-functions.el
+    ~/.emacs.d/elisp/my-cheatsheet.el: emacs.d/elisp/my-cheatsheet.el
     ~/.gitconfig:
     ~/.gitignore_global:
-    ~/.local/bin/antigen.zsh: 'submodules/antigen/bin/antigen.zsh'
-    ~/.local/etc/gtags.conf: 'gtags.conf'
-    ~/.pyenv: 'submodules/pyenv'
+    ~/.local/bin/antigen.zsh: submodules/antigen/bin/antigen.zsh
+    ~/.local/etc/gtags.conf: gtags.conf
+    ~/.pyenv: submodules/pyenv
     ~/.zshrc:
     ~/.zshrc.d/:
         glob: true

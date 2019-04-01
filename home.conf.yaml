@@ -4,5 +4,5 @@
       relink: true
 
 - link:
-    ~/.emacs.d/conf.d/home-config.el: 'site-specific/axis/emacs-site-conf.el'
-    ~/.gitconfig_local: 'site-specific/home/.gitconfig_local'
+    ~/.emacs.d/conf.d/home-config.el: site-specific/axis/emacs-site-conf.el
+    ~/.gitconfig_local: site-specific/home/.gitconfig_local

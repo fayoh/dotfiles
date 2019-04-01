@@ -10,17 +10,17 @@
   - ['./clone.sh https://github.com/QTodoTxt/QTodoTxt2.git site-specific/axis/repos/qtodotxt2', Get qtodotxt2]
 
 - link:
-    ~/.config/zshmarks/bookmarks: 'site-specific/axis/zshmarks-bookmarks'
-    ~/.emacs.d/elisp/early-init.el: 'site-specific/axis/emacs-early-init.el'
-    ~/.emacs.d/conf.d/axis-config.el: 'site-specific/axis/emacs-site-conf.el'
-    ~/.gitconfig_local: 'site-specific/axis/.gitconfig_local'
-    ~/.local/bin/gitproxy.sh: 'site-specific/axis/gitproxy.sh'
-    ~/.local/bin/oe-setup.sh: 'site-specific/axis/repos/oe-setup/oe-setup.sh'
-    ~/.local/bin/qtodotxt: 'site-specific/axis/repos/qtodotxt2/bin/qtodotxt'
+    ~/.config/zshmarks/bookmarks: site-specific/axis/zshmarks-bookmarks
+    ~/.emacs.d/elisp/early-init.el: site-specific/axis/emacs-early-init.el
+    ~/.emacs.d/conf.d/axis-config.el: site-specific/axis/emacs-site-conf.el
+    ~/.gitconfig_local: site-specific/axis/.gitconfig_local
+    ~/.local/bin/gitproxy.sh: site-specific/axis/gitproxy.sh
+    ~/.local/bin/oe-setup.sh: site-specific/axis/repos/oe-setup/oe-setup.sh
+    ~/.local/bin/qtodotxt: site-specific/axis/repos/qtodotxt2/bin/qtodotxt
     ~/.local/bin/:
         glob: true
         path: site-specific/axis/repos/scripts/*
-    ~/.ssh/config: 'site-specific/axis/ssh_config'
+    ~/.ssh/config: site-specific/axis/ssh_config
     ~/.zshrc.d/:
         glob: true
         path: site-specific/axis/zshrc.d/*
