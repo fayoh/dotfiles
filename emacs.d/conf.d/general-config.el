@@ -393,6 +393,9 @@
 (when (memq 'ripgrep packages-to-configure)
   (use-package ripgrep))
 
+(when (memq 'neotree packages-to-configure)
+  (use-package neotree
+    :config (setq neo-theme (if (display-graphic-p) 'icons 'arrow))))
 ;;;---------------------------------------------------------
 
 
