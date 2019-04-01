@@ -31,5 +31,7 @@ sqlite3
 sshfs
 silversearcher-ag
 terminator
+todotxt-cli
 usbutils
 zsh
+zsh-common
