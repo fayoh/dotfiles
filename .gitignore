@@ -1,1 +1,3 @@
 site-specific/*/repos
+submodules/*/*
+src
