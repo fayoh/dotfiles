@@ -104,6 +104,7 @@
     toml-mode
     visual-regexp-steroids
     whitespace
+    which-key
     yafolding
     yasnippet
     )
