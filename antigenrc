@@ -58,6 +58,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 # Autocompletion for pip
 antigen bundle pip
 
+# Nicer diffs for git
+antigen bundle zdharma/zsh-diff-so-fancy
+
 antigen apply
 
 bindkey '^ ' autosuggest-accept
