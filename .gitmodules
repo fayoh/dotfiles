@@ -8,5 +8,8 @@
 	path = submodules/pyenv
 	url = https://github.com/pyenv/pyenv.git
 [submodule "submodules/dotbot-pip"]
-	path = submodules/dotbot-pip
+	path = submodules/dotbot-plugins/dotbot-pip
 	url = https://github.com/sobolevn/dotbot-pip.git
+[submodule "dotbot-env"]
+	path = submodules/dotbot-plugins/dotbot-env
+	url = https://github.com/qobilidop/dotbot-env
