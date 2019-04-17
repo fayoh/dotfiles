@@ -3,6 +3,7 @@ coverage
 flake8
 flake8-bugbear
 flawfinder
+httpie
 isort
 jedi
 lazygit
