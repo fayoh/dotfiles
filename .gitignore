@@ -1,3 +1,4 @@
 site-specific/*/repos
 submodules/*/*
 src
+bin

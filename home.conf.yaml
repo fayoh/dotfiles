@@ -3,6 +3,15 @@
       create: true
       relink: true
 
+- shell:
+    - ['./download.sh https://github.com/Ultimaker/Cura/releases/download/4.0.0/Cura-4.0.0.AppImage  bin/cura && chmod +x bin/cura', Get Cura appimage]
+    - ['./download.sh -x https://github.com/GoldenCheetah/GoldenCheetah/releases/download/v3.5-DEV1903/GoldenCheetah_v3.5-DEV1903_64bit_Linux.AppImage bin/goldencheetah', Get goldencheetah appimage]
+    - ['./download.sh -x https://github.com/Subsurface-divelog/subsurface/releases/download/v4.8.6/Subsurface-4.8.6-x86_64.AppImage bin/subsurface', Get subsurface appimage]
+    - ['./download.sh -x https://github.com/FreeCAD/FreeCAD/releases/download/0.18_pre/FreeCAD__Conda_Py3Qt5_glibc2.12-x86_64.AppImage bin/freecad', Get FreeCAD development version appimage]
+
 - link:
     ~/.emacs.d/conf.d/home-config.el: site-specific/axis/emacs-site-conf.el
     ~/.gitconfig_local: site-specific/home/.gitconfig_local
+    ~/.local/bin/:
+      glob: true
+      path: bin/*

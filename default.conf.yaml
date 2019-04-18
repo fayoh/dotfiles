@@ -11,6 +11,9 @@
     - ['./clone.sh https://github.com/samuelsnyder/outline-todo.txt src/todotxt/outline', Get outline-todo for todotxt]
     - ['./clone.sh https://github.com/karbassi/todotxt-birdseye src/todotxt/birdseye', Get birdseye for todotxt]
     - ['./clone.sh https://github.com/markwu/todo-cli-plugins src/todotxt/view', Get view for todotxt]
+    - ['./download.sh -x https://github.com/egoist/devdocs-app/releases/download/v0.6.9/DevDocs-0.6.9-x86_64.AppImage bin/devdocs', Get devdocs appimage]
+    - ['./download.sh -x https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy bin/diff-so-fancy', Get diff-so-fancy diff viewing filter]
+    - ['./download.sh -x https://github.com/AppImage/AppImageUpdate/releases/download/continuous/appimageupdatetool-x86_64.AppImage bin/appimageupdatetool', Get appimage update tool]
 
 - link:
     ~/.config/sakura/sakura.conf: sakura.conf
@@ -37,6 +40,9 @@
     ~/.zshrc.d/:
         glob: true
         path: zshrc.d/*
+    ~/.local/bin/:
+      glob: true
+      path: bin/*
 
 - pip:
     file: packages.python
